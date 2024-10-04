@@ -1,25 +1,49 @@
 <script>
-
+  import fonts from '$lib/fonts.css?url';
+  import Gear from '$lib/images/gear.svg?component';
 </script>
+
+<svelte:head>
+  <noscript><link rel="stylesheet" href={fonts} /></noscript>
+  <link rel="preload" as="style" href={fonts} id="font-preload" />
+</svelte:head>
 
 <slot />
 
 <footer>
-  lorem ipsum sit dolor amet<br>
-  lorem ipsum sit dolor amet<br>
-  lorem ipsum sit dolor amet<br>
-  lorem ipsum sit dolor amet<br>
+  <b>Revolution</b>
+  <ul>
+    <li><a href="https://hackclub.com/slack/">Talk to us on the Hack Club Slack</a></li>
+    <li><a href="https://github.com/Revolution-Hacks/revolution">View this page's source code</a></li>
+  </ul>
+  <Gear class="gear" />
 </footer>
 
-<style>
+<style lang="scss">
+  @font-face {
+    font-family: 'Revolution Sans Title';
+    display: swap;
+    src: url('$lib/fonts/DMSans.title.woff2'),
+      local('DM Sans');
+  }
+  
+  @font-face {
+    font-family: 'Revolution Sans ASCII';
+    display: swap;
+    src: url('$lib/fonts/DMSans.text.woff2'),
+      local('DM Sans');
+  }
+  
   :global(:root) {
-    /* font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif'; */
+    font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
     
-    --fg: 216, 210, 244;
+    --fg: 216, 209, 204;
     --container: 73, 57, 47;
     --dim: 182, 168, 158;
     
     --overlay-brick: linear-gradient(rgba(21, 8, 2, 25%), rgba(21, 8, 2, 25%));
+    
+    color: rgb(var(--fg));
   }
   
   :global(main) {
@@ -29,16 +53,45 @@
   
   /* Footer */
   
+  @keyframes rotate {
+    from {
+      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(0turn);
+    }
+    
+    50% {
+      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(0.5turn);
+    }
+    
+    to {
+      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(1turn);
+    }
+  }
+  
   footer {
-    background: var(--overlay-brick-10), repeat url("$lib/textures/brick.svg");
+    position: relative;
+    background: var(--overlay-brick), repeat url("$lib/textures/brick.svg");
     min-width: 100vw;
+    min-height: 24em;
     padding: 4em;
+    overflow: clip;
+    
+    :global(.gear) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(calc(50% - 8em), calc(50% - 2em));
+      animation: 120s linear infinite rotate;
+      
+      :global(path) {
+        fill: rgb(var(--dim));
+      }
+    }
   }
   
   /* Headers */ 
   
   :global(h1, h2, h3, h4, h5, h6) {
-    /* font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif; */
+    font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
     font-weight: bolder;
     font-size: inherit;
   }
@@ -100,6 +153,7 @@
   :global(html, body) {
     padding: 0;
     margin: 0;
+    overflow-x: clip;
   }
   
   :global(*, ::before, ::after) {

@@ -22,4 +22,10 @@ src/lib/fonts/%.text.woff2: fonts/%.ttf
 	pyftsubset $< $(SUBSET_ARGS) $(TEXT_SUBSET_ARGS) --output-file=.fonts/tmp-$(@F)
 	fonttools varLib.instancer $(INSTANCER_ARGS) -o $@ .fonts/tmp-$(@F) $(TEXT_INSTANCER_ARGS)
 	
-fonts: src/lib/fonts/DMSans.title.woff2 src/lib/fonts/DMSans.text.woff2
+src/lib/fonts/%.mostlang.woff2: fonts/%.ttf
+	mkdir -p .fonts
+	pyftsubset $< $(SUBSET_ARGS) $(MOSTLANG_SUBSET_ARGS) --output-file=.fonts/tmp-$(@F)
+	fonttools varLib.instancer $(INSTANCER_ARGS) -o $@ .fonts/tmp-$(@F) $(MOSTLANG_INSTANCER_ARGS)
+	
+	
+fonts: src/lib/fonts/DMSans.title.woff2 src/lib/fonts/DMSans.text.woff2 src/lib/fonts/DMSans.mostlang.woff2
