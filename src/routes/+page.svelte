@@ -5,6 +5,7 @@
 
 <svelte:head>
   <title>Revolution 2025</title>
+  <meta name="description" content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!">
 </svelte:head>
 
 <main>
