@@ -21,58 +21,56 @@
 </footer>
 
 <style lang="scss">
-  @use "src/lib/style";
-  
+  @use 'src/lib/style';
+
   @font-face {
     font-family: 'Revolution Sans Title';
     display: swap;
-    src: url('$lib/fonts/DMSans.title.woff2'),
-      local('DM Sans');
+    src: url('$lib/fonts/DMSans.title.woff2'), local('DM Sans');
   }
-  
+
   @font-face {
     font-family: 'Revolution Sans ASCII';
     display: swap;
-    src: url('$lib/fonts/DMSans.text.woff2'),
-      local('DM Sans');
+    src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
-  
+
   :global(:root) {
     font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
-    
+
     --fg: 216, 209, 204;
     --container: 73, 57, 47;
     --dim: 182, 168, 158;
     --extra-dim: 103, 77, 59;
-    
+
     --overlay-brick: linear-gradient(rgba(21, 8, 2, 25%), rgba(21, 8, 2, 25%));
     --overlay-brick-light: linear-gradient(rgba(182, 168, 158, 25%), rgba(182, 168, 158, 25%));
-    
+
     color: rgb(var(--fg));
   }
-  
+
   :global(main) {
     min-height: calc(100vh - 4em);
-    
+
     @include style.brick-texture(var(--overlay-brick));
   }
-  
+
   /* Footer */
-  
+
   @keyframes -global-rotate {
     from {
       transform: var(--transform) rotate(0turn);
     }
-    
+
     50% {
       transform: var(--transform) rotate(0.5turn);
     }
-    
+
     to {
       transform: var(--transform) rotate(1turn);
     }
   }
-  
+
   footer {
     position: relative;
     min-width: 100vw;
@@ -80,25 +78,25 @@
     padding: 4em 2em;
     overflow: clip;
     box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 50%);
- 
+
     @include style.brick-texture(var(--overlay-brick), var(--overlay-brick), var(--overlay-brick));
-    
+
     :global(.gear) {
       position: absolute;
       right: 0;
       bottom: 0;
       --transform: translate(calc(50% - 8em), calc(50% - 2em)) scale(0.5);
       animation: 120s linear infinite rotate;
-      
+
       :global(path) {
         fill: rgb(var(--extra-dim));
       }
-      
+
       @media (min-width: style.$size_md) {
         --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
     }
-    
+
     .wall-top {
       position: absolute;
       top: 0;
@@ -107,17 +105,17 @@
       height: 2em;
       width: auto;
       box-shadow: 0 0 1em rgba(0, 0, 0, 50%);
-      
+
       @include style.brick-texture();
     }
-    
+
     @media (min-width: style.$size_sm) {
       padding: 4em;
     }
   }
-  
-  /* Headers */ 
-  
+
+  /* Headers */
+
   :global(h1, h2, h3, h4, h5, h6) {
     font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
     font-weight: bolder;
@@ -175,15 +173,15 @@
       font-size: 1.3em;
     }
   }
-  
+
   /* Screw browser stylesheets */
-  
+
   :global(html, body) {
     padding: 0;
     margin: 0;
     overflow-x: clip;
   }
-  
+
   :global(*, ::before, ::after) {
     box-sizing: border-box;
     border-width: 0;
