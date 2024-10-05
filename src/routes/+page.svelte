@@ -27,9 +27,11 @@
 </main>
 
 <style lang="scss">
+  @use "src/lib/style";
+  
   .first-screen {
     display: grid;
-    grid-template-columns: min-content min-content;
+    grid-template-columns: auto min-content;
     grid-template-rows: min-content min-content;
     justify-content: center;
     align-content: center;
@@ -39,20 +41,40 @@
     
     :global(.logo) {   /* I'm not sure why this is needed. Maybe because it's another component */
       grid-area: 1 / 1 / 1 / 1;
-      width: 6em;
-      height: 6em;
+      width: 3em;
+      height: 3em;
       align-self: center;
     }
     
     .header {
       grid-area: 1 / 2 / 1 / 2;
-      font-size: 6em;
+      font-size: 3em;
       min-width: max-content;
     }
     
     .content {
-      grid-area: 2 / 2 / 2 / 2;
+      display: grid;
+      grid-area: 2 / 1 / 2 / end;
       font-size: 1.5em;
+    }
+    
+    @media (min-width: style.$size_sm) {
+      :global(.logo) {
+        width: 6em;
+        height: 6em;
+      }
+      
+      .header {
+        grid-area: 1 / 2 / 1 / 2;
+        font-size: 6em;
+        min-width: max-content;
+      }
+      
+      .content {
+        display: grid;
+        grid-area: 2 / 2 / 2 / 2;
+        font-size: 1.5em;
+      }
     }
   }
 </style>

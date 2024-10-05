@@ -58,15 +58,15 @@
   
   @keyframes rotate {
     from {
-      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(0turn);
+      transform: var(--transform) rotate(0turn);
     }
     
     50% {
-      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(0.5turn);
+      transform: var(--transform) rotate(0.5turn);
     }
     
     to {
-      transform: translate(calc(50% - 8em), calc(50% - 2em)) rotate(1turn);
+      transform: var(--transform) rotate(1turn);
     }
   }
   
@@ -83,11 +83,15 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      transform: translate(calc(50% - 8em), calc(50% - 2em));
+      --transform: translate(calc(50% - 8em), calc(50% - 2em)) scale(0.5);
       animation: 120s linear infinite rotate;
       
       :global(path) {
         fill: rgb(var(--dim));
+      }
+      
+      @media (min-width: style.$size_md) {
+        --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
     }
   }
