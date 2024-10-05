@@ -2,7 +2,7 @@ $size_sm: 640px;
 $size_md: 768px;
 $size_lg: 1024px;
 
-@mixin brick-texture($additional_backgrounds: none) {
+@mixin brick-texture($additional_backgrounds...) {
     background: $additional_backgrounds, repeat url("$lib/textures/brick.svg") left/64px;
     
     @media (max-width: $size_sm) {

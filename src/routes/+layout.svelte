@@ -11,6 +11,7 @@
 <slot />
 
 <footer>
+  <div class="wall-top"></div>
   <b>Revolution</b>
   <ul>
     <li><a href="https://hackclub.com/slack/">Talk to us on the Hack Club Slack</a></li>
@@ -42,8 +43,10 @@
     --fg: 216, 209, 204;
     --container: 73, 57, 47;
     --dim: 182, 168, 158;
+    --extra-dim: 103, 77, 59;
     
     --overlay-brick: linear-gradient(rgba(21, 8, 2, 25%), rgba(21, 8, 2, 25%));
+    --overlay-brick-light: linear-gradient(rgba(182, 168, 158, 25%), rgba(182, 168, 158, 25%));
     
     color: rgb(var(--fg));
   }
@@ -51,12 +54,12 @@
   :global(main) {
     min-height: calc(100vh - 4em);
     
-    @include style.brick-texture;
+    @include style.brick-texture(var(--overlay-brick));
   }
   
   /* Footer */
   
-  @keyframes rotate {
+  @keyframes -global-rotate {
     from {
       transform: var(--transform) rotate(0turn);
     }
@@ -74,10 +77,11 @@
     position: relative;
     min-width: 100vw;
     min-height: 24em;
-    padding: 4em;
+    padding: 4em 2em;
     overflow: clip;
+    box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 50%);
  
-    @include style.brick-texture(var(--overlay-brick));
+    @include style.brick-texture(var(--overlay-brick), var(--overlay-brick), var(--overlay-brick));
     
     :global(.gear) {
       position: absolute;
@@ -87,12 +91,28 @@
       animation: 120s linear infinite rotate;
       
       :global(path) {
-        fill: rgb(var(--dim));
+        fill: rgb(var(--extra-dim));
       }
       
       @media (min-width: style.$size_md) {
         --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
+    }
+    
+    .wall-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2em;
+      width: auto;
+      box-shadow: 0 0 1em rgba(0, 0, 0, 50%);
+      
+      @include style.brick-texture();
+    }
+    
+    @media (min-width: style.$size_sm) {
+      padding: 4em;
     }
   }
   

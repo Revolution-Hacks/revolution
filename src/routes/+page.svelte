@@ -10,18 +10,31 @@
 
 <main>
   <div class="first-screen">
-    <DoubleArrow class="logo" />
-    <h1 class="header">Revolution</h1>
-    
-    <div class="content">
-      <p>Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!</p>
+    <div class="first-screen-content">
+      <DoubleArrow class="logo" />
+      <h1 class="header">Revolution</h1>
       
-      <!--
-      <p>Get updates from Revolution:</p>
-      <label for="email">Your email:</label>
-      <input id="email" type="email" />
-      <aside>By submitting, you agree to our <a href="/privacy">privacy policy</a>.</aside>
-      -->
+      <div class="content">
+        <p>Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!</p>
+        
+        <!--
+        <p>Get updates from Revolution:</p>
+        <label for="email">Your email:</label>
+        <input id="email" type="email" />
+        <aside>By submitting, you agree to our <a href="/privacy">privacy policy</a>.</aside>
+        -->
+      </div>
+    </div>
+    <div class="track"></div>
+    <div class="track-bridge"></div>
+    <div class="gear first">
+      <Gear />
+    </div>
+    <div class="gear second">
+      <Gear />
+    </div>
+    <div class="gear third">
+      <Gear />
     </div>
   </div>
 </main>
@@ -29,7 +42,90 @@
 <style lang="scss">
   @use "src/lib/style";
   
+  // Decorative elements
   .first-screen {
+    position: relative;
+    min-height: 100vh;
+    overflow: clip;
+    
+    .track {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) translateX(-4em) rotate(-60deg);
+      background: repeat space url("$lib/textures/track.svg") left/8em;
+      height: 18em;
+      width: max(200vw, 200vh);
+    }
+    
+    .track-bridge {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) translateX(-4em) rotate(20deg);
+      height: 12em;
+      width: max(200vw, 200vh);
+      
+      @include style.brick-texture(repeat space url("$lib/textures/track.svg") left/8em);
+      
+      @media (min-width: style.$size_sm) {
+        display: block;
+      }
+    }
+    
+    .gear {
+      position: absolute;
+      animation: 120s linear infinite rotate;
+      height: 24em;
+      aspect-ratio: 1;
+      
+      :global(svg) {
+        width: 100%;
+        height: 100%;
+      }
+      
+      :global(path) {
+        fill: rgb(var(--extra-dim));
+      }
+      
+      &.first {
+        display: none;
+        top: 50%;
+        right: calc(0% - 4em);
+        --transform: translate(50%, -100%);
+      }
+      
+      &.second {
+        bottom: 50%;
+        right: 0%;
+        animation-direction: reverse;
+        --transform: translate(50%, 100%);
+      }
+      
+      &.third {
+        display: none;
+        bottom: 0%;
+        left: 0%;
+        --transform: translate(-50%, 25%);
+      }
+      
+      @media (min-width: style.$size_md) {
+        height: 36em;
+        
+        &.first, &.third {
+          display: block;
+        }
+      }
+    }
+  }
+  
+  // Actual content
+  .first-screen-content {
+    position: absolute;
+    width: 100%;
+    height: 75%;
+    z-index: 100;
     display: grid;
     grid-template-columns: auto min-content;
     grid-template-rows: min-content min-content;
