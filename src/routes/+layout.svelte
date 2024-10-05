@@ -20,6 +20,8 @@
 </footer>
 
 <style lang="scss">
+  @use "src/lib/style";
+  
   @font-face {
     font-family: 'Revolution Sans Title';
     display: swap;
@@ -47,8 +49,9 @@
   }
   
   :global(main) {
-    background: repeat url("$lib/textures/brick.svg");
     min-height: calc(100vh - 4em);
+    
+    @include style.brick-texture;
   }
   
   /* Footer */
@@ -69,11 +72,12 @@
   
   footer {
     position: relative;
-    background: var(--overlay-brick), repeat url("$lib/textures/brick.svg");
     min-width: 100vw;
     min-height: 24em;
     padding: 4em;
     overflow: clip;
+ 
+    @include style.brick-texture(var(--overlay-brick));
     
     :global(.gear) {
       position: absolute;
