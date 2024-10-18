@@ -1,10 +1,12 @@
 <script>
+  import DoubleArrow from '$lib/images/doublearrow.svg?component';
   import fonts from '$lib/fonts.css?url';
   import Gear from '$lib/images/gear.svg?component';
 </script>
 
 <svelte:head>
   <noscript><link rel="stylesheet" href={fonts} /></noscript>
+  <!-- See app.html -->
   <link rel="preload" as="style" href={fonts} id="font-preload" />
 </svelte:head>
 
@@ -12,11 +14,23 @@
 
 <footer>
   <div class="wall-top"></div>
-  <b>Revolution</b>
-  <ul>
-    <li><a href="https://hackclub.com/slack/">Talk to us on the Hack Club Slack</a></li>
-    <li><a href="https://github.com/Revolution-Hacks/revolution">View this page's source code</a></li>
-  </ul>
+  <div class="grid">
+    <DoubleArrow class="logo" />
+    <p class="header">Revolution</p>
+    <div class="content">
+      <ul>
+        <li><a href="https://hackclub.com/slack/">Hack Club Slack (talk to us!)</a></li>
+        <li><a href="https://github.com/Revolution-Hacks/revolution">Source code</a></li>
+        <li><a href="https://hcb.hackclub.com/revolution">Financials</a></li>
+      </ul>
+
+      <p>
+        Revolution is fiscally sponsored by The Hack Foundation (d.b.a Hack Club), a 501(c)(3) nonprofit (EIN:
+        81-2908499). Revolution is not an official Hack Club event. Use of Hack Club branding does not constitute an
+        endorsement, implied or otherwise, of Revolution by Hack Club.
+      </p>
+    </div>
+  </div>
   <Gear class="gear" />
 </footer>
 
@@ -35,6 +49,7 @@
     src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
 
+  // Global variables
   :global(:root) {
     font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
 
@@ -48,14 +63,6 @@
 
     color: rgb(var(--fg));
   }
-
-  :global(main) {
-    min-height: calc(100vh - 4em);
-
-    @include style.brick-texture(var(--overlay-brick));
-  }
-
-  /* Footer */
 
   @keyframes -global-rotate {
     from {
@@ -71,16 +78,27 @@
     }
   }
 
+  // Main element brick texture
+  :global(main) {
+    min-height: calc(100vh - 4em);
+    overflow: clip;
+
+    @include style.brick-texture(var(--overlay-brick));
+  }
+
+  // Footer styles
   footer {
     position: relative;
     min-width: 100vw;
     min-height: 24em;
     padding: 4em 2em;
+    padding-bottom: 286px;
     overflow: clip;
     box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 50%);
 
     @include style.brick-texture(var(--overlay-brick), var(--overlay-brick), var(--overlay-brick));
 
+    // Decorative elements
     :global(.gear) {
       position: absolute;
       right: 0;
@@ -112,10 +130,46 @@
     @media (min-width: style.$size_sm) {
       padding: 4em;
     }
+
+    // Content
+    .grid {
+      display: grid;
+      max-width: 64em;
+      width: 50%;
+      grid-template-columns: min-content auto;
+      grid-template-rows: min-content min-content;
+      gap: 1em;
+
+      :global(.logo) {
+        grid-area: 1 / 1 / 1 / 1;
+        width: 3em;
+        height: 3em;
+        align-self: center;
+      }
+
+      .header {
+        font-weight: bold;
+        grid-area: 1 / 2 / 1 / 2;
+        font-size: 3em;
+        min-width: max-content;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        grid-area: 2 / 1 / 2 / end;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+        }
+      }
+    }
   }
 
-  /* Headers */
-
+  // Global header styles
   :global(h1, h2, h3, h4, h5, h6) {
     font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
     font-weight: bolder;
@@ -174,8 +228,7 @@
     }
   }
 
-  /* Screw browser stylesheets */
-
+  // CSS reset
   :global(html, body) {
     padding: 0;
     margin: 0;

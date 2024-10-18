@@ -13,3 +13,37 @@ $size_lg: 1024px;
       repeat url('$lib/textures/brick.svg');
   }
 }
+
+@mixin box-texture($image) {
+  border-image: url($image);
+  border-image-slice: 8 fill;
+  border-image-width: 16px 16px;
+}
+
+@mixin hover {
+  // Because we turn off the user agent's default outline,
+  // we should add a suitable alternative for accessibility reasons.
+
+  & {
+    transform: translateY(0);
+    box-shadow: none;
+    filter: brightness(100%);
+    transition:
+      box-shadow 100ms,
+      transform 100ms,
+      filter 100ms;
+  }
+
+  &:hover {
+    filter: brightness(110%);
+    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    filter: brightness(120%);
+    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    outline: none;
+  }
+}

@@ -1,6 +1,8 @@
 <script>
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
   import Gear from '$lib/images/gear.svg?component';
+  import { enhance } from '$app/forms';
+  import Arrow from '$lib/images/arrow.svg?component';
 </script>
 
 <svelte:head>
@@ -11,6 +13,22 @@
   />
 </svelte:head>
 
+{#snippet email()}
+  <form action="/" method="post" class="email-form">
+    <div class="inputs">
+      <label>
+        <span class="email-label">Your email:</span>
+        <input type="email" placeholder="team@revohacks.com" />
+      </label>
+      <button type="submit" aria-label="Submit"><Arrow class="arrow" /></button>
+    </div>
+    <aside>
+      We'll only send you an email when something big happens.<br />
+      By submitting, you agree to our <a href="/privacy">privacy policy</a>.
+    </aside>
+  </form>
+{/snippet}
+
 <main>
   <div class="first-screen">
     <div class="first-screen-content">
@@ -18,14 +36,13 @@
       <h1 class="header">Revolution</h1>
 
       <div class="content">
-        <p>Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!</p>
-
-        <!--
-        <p>Get updates from Revolution:</p>
-        <label for="email">Your email:</label>
-        <input id="email" type="email" />
-        <aside>By submitting, you agree to our <a href="/privacy">privacy policy</a>.</aside>
-        -->
+        <p class="hero">
+          Revolution is an Industrial Revolution themed hackathon in the UK taking place sometime next year. We'd love
+          to see you there!
+        </p>
+        <br />
+        <p class="email-title">Find out when sign-ups open:</p>
+        {@render email()}
       </div>
     </div>
     <div class="track"></div>
@@ -40,16 +57,40 @@
       <Gear />
     </div>
   </div>
+
+  <div class="info-card">
+    <h2>What is a hackathon?</h2>
+    <p>A hackathon is where teenagers come together to build a project and share them with the world!</p>
+  </div>
+
+  <div class="info-card">
+    <h2>Who is Revolution for?</h2>
+    <p>Revolution is for teenagers under 18 and is <b>completely free to attend</b>.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>How can I sign up?</h2>
+    <p>Get updates about Revolution and receive an email when we open our sign-up form:</p>
+    <br />
+    {@render email()}
+  </div>
 </main>
 
 <style lang="scss">
   @use 'src/lib/style';
 
+  main {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4em;
+    gap: 4em;
+  }
+
   // Decorative elements
   .first-screen {
     position: relative;
     min-height: 100vh;
-    overflow: clip;
+    overflow-x: clip;
 
     .track {
       position: absolute;
@@ -124,7 +165,7 @@
     }
   }
 
-  // Actual content
+  // Title card content
   .first-screen-content {
     position: absolute;
     width: 100%;
@@ -156,7 +197,15 @@
     .content {
       display: grid;
       grid-area: 2 / 1 / 2 / end;
-      font-size: 1.5em;
+
+      .hero {
+        font-size: 1.5em;
+      }
+
+      .email-title {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
     }
 
     @media (min-width: style.$size_sm) {
@@ -169,13 +218,98 @@
         grid-area: 1 / 2 / 1 / 2;
         font-size: 6em;
         min-width: max-content;
+        padding-right: 4rem;
       }
 
       .content {
         display: grid;
         grid-area: 2 / 2 / 2 / 2;
-        font-size: 1.5em;
       }
+    }
+  }
+
+  // Ensure everything is on top of the background content
+  main > :not(:first-child) {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Information card styles
+  .info-card {
+    margin: auto;
+    max-width: calc(100vw - 4em);
+    width: 64em;
+    padding: 2em 2em;
+
+    @include style.box-texture('$lib/textures/containerbox.svg');
+  }
+
+  /*
+  main > .info-card:nth-child(odd) {
+      text-align: right;
+  }
+  */
+
+  // Email form
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    .inputs {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+      align-items: flex-end;
+      max-width: 100%;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        font-weight: 500;
+        max-width: 24em;
+        flex-grow: 1;
+        color: inherit;
+
+        input {
+          font-weight: 600;
+          background: none;
+          padding: 0 2em;
+          height: 3em;
+          color: inherit;
+
+          @include style.box-texture('$lib/textures/inputbox.svg');
+          @include style.hover;
+
+          &::placeholder {
+            color: inherit;
+            opacity: 0.8;
+            font-weight: 500;
+          }
+        }
+      }
+
+      button {
+        height: 3em;
+        width: 3em;
+        background: none;
+        @include style.box-texture('$lib/textures/inputbox.svg');
+        @include style.hover;
+
+        :global(.arrow) {
+          margin: auto;
+
+          :global(path) {
+            fill: var(--fg);
+          }
+        }
+      }
+    }
+
+    aside {
+      opacity: 0.9;
+      font-size: 0.9em;
     }
   }
 </style>
