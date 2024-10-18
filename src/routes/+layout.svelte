@@ -161,12 +161,14 @@
         grid-area: 2 / 1 / 2 / end;
 
         ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
           margin: 0;
           padding: 0;
           font-weight: 500;
           font-size: 1.2em;
           list-style-type: none;
-          line-height: 1.5;
         }
       }
     }
