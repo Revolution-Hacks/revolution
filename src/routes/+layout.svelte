@@ -163,7 +163,10 @@
         ul {
           margin: 0;
           padding: 0;
+          font-weight: 500;
+          font-size: 1.2em;
           list-style-type: none;
+          line-height: 1.5;
         }
       }
     }
