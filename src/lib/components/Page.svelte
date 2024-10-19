@@ -1,0 +1,17 @@
+<main>
+  <div class="content">
+    <slot />
+  </div>
+</main>
+
+<style lang="scss">
+  .content {
+    margin: auto;
+    padding: 4em;
+    width: 32em;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+</style>

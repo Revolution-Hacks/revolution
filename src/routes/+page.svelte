@@ -14,11 +14,11 @@
 </svelte:head>
 
 {#snippet email()}
-  <form action="/" method="post" class="email-form">
+  <form action="/email" method="post" class="email-form">
     <div class="inputs">
       <label>
         <span class="email-label">Your email:</span>
-        <input type="email" placeholder="team@revohacks.com" />
+        <input type="email" placeholder="hello@revohacks.com" name="email" required />
       </label>
       <button type="submit" aria-label="Submit"><Arrow class="arrow" /></button>
     </div>
@@ -269,8 +269,11 @@
         gap: 0.5em;
         font-weight: 500;
         max-width: 24em;
-        flex-grow: 1;
+        flex: 1;
         color: inherit;
+
+        // If the below hack stops working, at least make the box still accessible
+        color-scheme: dark;
 
         input {
           font-weight: 600;
@@ -287,6 +290,16 @@
             opacity: 0.8;
             font-weight: 500;
           }
+
+          &:-webkit-autofill {
+            // Ugly hack:
+            // the browser sets background-color: <something> !important
+            // and we can't override that in the normal way
+            // so just make the transition so slow it basically does not do anything
+            transition:
+              background-color 0s 31536000s,  // = 1 year
+              color 0s 31536000s !important;
+          }
         }
       }
 
@@ -294,6 +307,7 @@
         height: 3em;
         width: 3em;
         background: none;
+        flex: none;
         @include style.box-texture('$lib/textures/inputbox.svg');
         @include style.hover;
 

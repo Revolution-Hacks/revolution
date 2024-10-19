@@ -1,8 +1,9 @@
 <script>
   import { page } from '$app/stores';
+  import Page from '$lib/components/Page.svelte';
 </script>
 
-<main>
+<Page>
   <div class="error-message">
     <h1>{$page.status}: {$page.error?.message}</h1>
     {#if $page.status === 404}
@@ -12,20 +13,5 @@
     {/if}
 
     <a href="/">Go to the homepage</a>
-  </div>
-</main>
-
-<style lang="scss">
-  .error-message {
-    margin: auto;
-    padding-top: 8em;
-    width: min-content;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-
-    h1 {
-      width: max-content;
-    }
-  }
-</style>
+  </div></Page
+>
