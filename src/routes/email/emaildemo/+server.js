@@ -5,7 +5,7 @@ export const GET = ({ url }) => {
   const { html, plain } = renderEmail(NewsletterVerify, {
     email: 'john@gmail.com',
     url: 'https://google.com/'
-  });
+  }, url);
 
   return new Response(html, {
     headers: {

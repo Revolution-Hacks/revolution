@@ -59,8 +59,7 @@
     box-sizing: border-box;
     max-width: 480px;
     max-height: 0;
-    // 50% / 1.6 (aspect ratio) = 31.25
-    padding: 31.25% 0;
+    padding: 30% 0 70% 0;
     width: 100%;
 
     h1 {
