@@ -11,13 +11,13 @@
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 </svelte:head>
 
-<div
-  class="main"
-  style="background:
-    center/100% url('{host.origin}/email-hero.png'),
-    #342114;"
->
-  <div class="hero">
+<div class="main">
+  <div
+    class="hero"
+    style="background:
+      center/100% url('{host.origin}/email-hero.png'),
+      #342114;"
+  >
     <h1>Please verify your email address</h1>
   </div>
 
