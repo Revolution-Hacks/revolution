@@ -17,4 +17,3 @@
 {:else}
   <ErrorPage />
 {/if}
-

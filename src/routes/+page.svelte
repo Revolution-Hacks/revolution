@@ -297,7 +297,8 @@
             // and we can't override that in the normal way
             // so just make the transition so slow it basically does not do anything
             transition:
-              background-color 0s 31536000s,  // = 1 year
+              background-color 0s 31536000s,
+              // = 1 year
               color 0s 31536000s !important;
           }
         }
