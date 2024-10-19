@@ -5,15 +5,16 @@ import { render } from 'svelte/server';
 import DevFooter from '$lib/emails/DevFooter.svelte';
 
 export function renderEmail<T extends Record<string, any>>(
-  component: Component<T>,
+  component: Component<T & { host: URL }>,
   props: T,
-  isDev: boolean
+  host: URL
 ): { html: string; plain: string } {
+  (props as T & { host: URL }).host = host;
   let { head, body } = render(component, {
-    props
+    props: props as T & { host: URL }
   });
 
-  if (isDev) {
+  if (host.origin !== 'https://revohacks.com') {
     const { head: devHead, body: devBody } = render(DevFooter);
     head += devHead;
     body += devBody;

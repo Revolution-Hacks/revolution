@@ -46,7 +46,7 @@ export const actions = {
         email,
         url: `${url.origin}/email/subscribe?token=${token}`
       },
-      url.origin !== 'https://revohacks.com'
+      url
     );
 
     const emailResponse: any = await (

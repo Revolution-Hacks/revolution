@@ -3,6 +3,7 @@
 <script lang="ts">
   export let email: string;
   export let url: string;
+  export let host: URL;
 </script>
 
 <svelte:head>
@@ -10,7 +11,12 @@
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 </svelte:head>
 
-<div class="main">
+<div
+  class="main"
+  style="background:
+    center/100% url('{host.origin}/email-hero.png'),
+    #342114;"
+>
   <div class="hero">
     <h1>Please verify your email address</h1>
   </div>
@@ -51,9 +57,6 @@
 
   .hero {
     box-sizing: border-box;
-    background:
-      center/100% url('/email-hero.png'),
-      #342114;
     max-width: 480px;
     max-height: 0;
     // 50% / 1.6 (aspect ratio) = 31.25

@@ -2,8 +2,8 @@
 
 <div class="footer">
   <p>
-    This email was sent from a <b>development environment</b>. If you have received this email in error, please let us
-    know at
+    This email was sent from a <b>development environment</b>. If you have received this email in error, please
+    disregard its contents and let us know immediately at
     <a href="mailto:hello@revohacks.com">hello@revohacks.com</a>.
   </p>
 </div>
