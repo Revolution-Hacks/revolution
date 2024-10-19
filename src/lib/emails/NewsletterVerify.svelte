@@ -9,6 +9,8 @@
 <svelte:head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
 </svelte:head>
 
 <div class="main">
@@ -67,6 +69,7 @@
       height: 0;
       font-size: 2rem;
       padding: 0 5%; // 16px padding, 16 / 320 = 0.05
+      color-scheme: dark; // Prevent unreadable headers
       color: rgb(var(--fg));
     }
   }
