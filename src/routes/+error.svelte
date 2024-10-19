@@ -5,13 +5,20 @@
 
 <Page>
   <div class="error-message">
-    <h1>{$page.status}: {$page.error?.message}</h1>
     {#if $page.status === 404}
-      <p>We couldn't find that page. If you typed in a URL check to see if it is correct.</p>
-    {:else}
+      <h1>We couldn't find that one</h1>
+      <p>This page does not exist. If you typed in a URL check to see if it is correct.</p>
+    {:else if $page.status === 400}
+      <h1>Bad request</h1>
+      <p>You may have entered in wrong information or the link you followed has expired. Try again?</p>
+    {:else if $page.status >= 400 && $page.status < 500}
+      <h1>Client error {$page.status} {$page.error?.message}</h1>
       <p>Something went wrong. Try again?</p>
+    {:else if $page.status >= 500 && $page.status < 600}
+      <h1>Server error {$page.status} {$page.error?.message}</h1>
+      <p>Something went wrong. If the error persists, tell us what the error is and how you got here at <a href="hello@revohacks.com">hello@revohacks.com</a>.</p>
     {/if}
 
     <a href="/">Go to the homepage</a>
-  </div></Page
->
+  </div>
+</Page>

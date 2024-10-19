@@ -9,12 +9,18 @@ export const load: PageServerLoad = async ({ url }) => {
   if (token === null) {
     return fail(400);
   }
-
+  
   const secret = new TextEncoder().encode(env.EMAIL_SIGNING_KEY);
-  const { payload } = await jwtVerify(token, secret, {
-    issuer: 'https://revohacks.com/',
-    audience: 'https://revohacks.com/'
-  });
+  let payload;
+  try {
+    payload = (await jwtVerify(token, secret, {
+      issuer: 'https://revohacks.com/',
+      audience: 'https://revohacks.com/'
+    })).payload;
+  } catch (e) {
+    console.error(`JWT validation error: ${e}`)
+    return fail(400);
+  }
 
   if (payload.action !== 'subscribe') {
     return fail(400);
