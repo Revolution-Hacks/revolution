@@ -8,7 +8,7 @@
   .content {
     margin: auto;
     padding: 4em;
-    width: 32em;
+    width: 64em;
     max-width: 100%;
     display: flex;
     flex-direction: column;

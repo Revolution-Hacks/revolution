@@ -50,18 +50,9 @@
     src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
 
-  // Global variables
+  // Global font styles
   :global(:root) {
     font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
-
-    --fg: 216, 209, 204;
-    --container: 73, 57, 47;
-    --dim: 182, 168, 158;
-    --extra-dim: 103, 77, 59;
-
-    --overlay-brick: linear-gradient(rgba(21, 8, 2, 25%), rgba(21, 8, 2, 25%));
-    --overlay-brick-light: linear-gradient(rgba(182, 168, 158, 25%), rgba(182, 168, 158, 25%));
-
     color: rgb(var(--fg));
   }
 

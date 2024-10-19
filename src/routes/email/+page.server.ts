@@ -2,13 +2,21 @@ import { env } from '$env/dynamic/private';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { SignJWT } from 'jose';
+import NewsletterVerify from '$lib/emails/NewsletterVerify.svelte';
+import { createSubscribeToken } from '$lib/jwt';
+import { renderEmail } from '$lib/emails/email';
 
 export const actions = {
-  default: async ({ request }) => {
+  default: async ({ url, request }) => {
     const data = await request.formData();
     const email = data.get('email');
+
     if (email === null) {
-      return fail(400, { message: 'No email provided' });
+      return redirect(303, '/');
+    }
+
+    if (email instanceof File) {
+      return fail(400);
     }
 
     const airtableResponse = await fetch(`https://api.airtable.com/v0/${env.AIRTABLE_BASE}/${env.AIRTABLE_TABLE}`, {
@@ -30,17 +38,16 @@ export const actions = {
       return fail(500);
     }
 
-    const airtableId = (await airtableResponse.json()).id;
-
-    const secret = new TextEncoder().encode(env.EMAIL_SIGNING_KEY);
-    const alg = 'HS256';
-    const jwt = await new SignJWT({ email: email, action: 'subscribe', id: airtableId })
-      .setProtectedHeader({ alg })
-      .setIssuedAt()
-      .setIssuer('https://revohacks.com/')
-      .setAudience('https://revohacks.com/')
-      .setExpirationTime('7d')
-      .sign(secret);
+    const { id: airtableId } = await airtableResponse.json();
+    const token = await createSubscribeToken(email, airtableId);
+    const { html, plain } = renderEmail(
+      NewsletterVerify,
+      {
+        email,
+        url: `${url.origin}/email/subscribe?token=${token}`
+      },
+      url.origin !== 'https://revohacks.com'
+    );
 
     const emailResponse: any = await (
       await fetch('https://api.postmarkapp.com/email', {
@@ -54,12 +61,8 @@ export const actions = {
           From: env.POSTMARK_EMAIL_FROM,
           To: email,
           Subject: 'Verify your email address for Revolution',
-          HtmlBody: `
-          Hi ${email}! You're getting this email because you entered your email into our sign-up form.<br>
-          <a href="https://revohacks.com/email/subscribe?token=${jwt}">Click this link to verify your email address.</a><br>
-          This link will expire in 7 days.<br>
-          If you did not sign up to hear from us, ignore this email.
-        `
+          HtmlBody: html,
+          TextBody: plain
         })
       })
     ).json();

@@ -1,30 +1,16 @@
-import { jwtVerify } from 'jose';
 import type { PageServerLoad } from './$types';
 import { env } from '$env/dynamic/private';
-import { fail } from '@sveltejs/kit';
+import { validateUnsubscribeToken } from '$lib/jwt';
+import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ url }) => {
   const token = url.searchParams.get('token');
 
   if (token === null) {
-    return fail(400);
-  }
-  
-  const secret = new TextEncoder().encode(env.EMAIL_SIGNING_KEY);
-  let payload;
-  try {
-    payload = (await jwtVerify(token, secret, {
-      issuer: 'https://revohacks.com/',
-      audience: 'https://revohacks.com/'
-    })).payload;
-  } catch (e) {
-    console.error(`JWT validation error: ${e}`)
-    return fail(400);
+    return redirect(303, '/');
   }
 
-  if (payload.action !== 'subscribe') {
-    return fail(400);
-  }
+  const payload = await validateUnsubscribeToken(token);
 
   await (
     await fetch(`https://api.airtable.com/v0/${env.AIRTABLE_BASE}/${env.AIRTABLE_TABLE}/${payload.id}`, {

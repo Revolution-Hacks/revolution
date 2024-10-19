@@ -31,6 +31,8 @@
   },
   "type": "module",
   "dependencies": {
-    "jose": "^5.9.4"
+    "html-to-text": "^9.0.5",
+    "jose": "^5.9.4",
+    "juice": "^11.0.0"
   }
 }
