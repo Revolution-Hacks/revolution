@@ -4,11 +4,14 @@
   let glossary = {
     'data subject': 'someone whose information we have collected',
     'personal data': 'any data that could be used to identify someone, for example, your name or email address',
-    // "sensitive personal data": "personal data that requires more protection because it is sensitive, like your racial or ethnic origin or information about your health",
+    // "sensitive personal data":
+    // "personal data that requires more protection because it is sensitive, like your racial or ethnic origin or information about your health",
     'IP address': 'a series of numbers that represents the network you are currently on',
     'approximate location': 'an estimated location based on your IP address, for example, the country you live in',
     'legitimate interests':
-      'processing your data for the interests of Revolution or third parties while balancing your interests, rights and freedoms'
+      'processing your data for the interests of Revolution or third parties while balancing your interests, rights and freedoms',
+    'user agent':
+      'a piece of text that identifies the browser or email client you are using, as well as what device and operating system you use'
   };
 </script>
 
@@ -62,10 +65,11 @@
     site, we may collect:
   </p>
   <ul>
-    <li>your {@render term('IP address')}</li>
+    <li>your {@render term('IP address')},</li>
     <li>
-      your {@render term('approximate location')} (for example, the country you live in, but not your home address)
+      your {@render term('approximate location')} (for example, the country you live in, but not your home address),
     </li>
+    <li>your {@render term('user agent')}.</li>
   </ul>
   <p>
     We collect this information to improve Revolution. For example, knowing that many people from other countries are
@@ -112,9 +116,9 @@
   </ul>
   <p>
     <strong>This is not legal advice.</strong> Learn more on
-    <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/"
-      >ico.org.uk</a
-    >.
+    <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/">
+      ico.org.uk
+    </a>.
   </p>
 
   {@render header('contact', 'Who do I contact regarding my personal data?')}
