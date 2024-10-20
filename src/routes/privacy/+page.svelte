@@ -143,7 +143,7 @@
     </li>
   </ul>
   <p>
-    To use your rights, please contact <a href="mailto:hello@revohacks.com">hello@revohacks.com</a>.
+    To use your rights, please contact <a href="mailto:policy@revohacks.com">policy@revohacks.com</a>.
   </p>
   <p>
     <strong>This is not legal advice.</strong> Learn more on
@@ -154,7 +154,7 @@
 
   {@render header('contact', 'Who do I contact regarding my personal data?')}
   <p>
-    Please contact <a href="mailto:hello@revohacks.com">hello@revohacks.com</a>.
+    Please contact <a href="mailto:policy@revohacks.com">policy@revohacks.com</a>.
   </p>
 </Page>
 
