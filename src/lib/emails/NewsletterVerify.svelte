@@ -35,7 +35,6 @@
 
 <div class="content main footer">
   <p>This is a transactional email. You cannot unsubscribe from it.</p>
-  <p>10 Downing Street, London, SW1A 2AA</p>
   <p><a href="https://revohacks.com">Revolution</a></p>
   <p>
     Revolution is fiscally sponsored by The Hack Foundation (d.b.a Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499).

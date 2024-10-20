@@ -41,10 +41,10 @@ export const actions = {
     }
     
     const token = await createSubscribeToken(email, airtableId);
-    /* sendEmail(email, NewsletterVerify, {
+    sendEmail(email, NewsletterVerify, {
       email,
       url: `${url.origin}/email/subscribe?token=${token}`
-      }, url); */
+    }, url);
 
     return redirect(303, '/email');
   }
