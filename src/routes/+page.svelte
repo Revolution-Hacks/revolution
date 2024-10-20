@@ -328,4 +328,16 @@
       font-size: 0.9em;
     }
   }
+  
+  // 1.4.12 Text Spacing - Level AA
+  /*
+  :global(*) {
+    line-height: 1.5 !important;
+    word-spacing: 0.16em !important;
+  }
+  
+  :global(p) {
+    margin: 2em 0 !important;
+  }
+  */
 </style>
