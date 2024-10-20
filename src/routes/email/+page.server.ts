@@ -45,7 +45,7 @@ export const actions = {
     }
 
     const token = await createSubscribeToken(email, airtableId);
-    sendEmail(
+    await sendEmail(
       email,
       NewsletterVerify,
       {
