@@ -14,12 +14,13 @@ jobs:
         run: |
           npm install
           npm run build
+        env:
+          AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
+          AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.14.x
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
-          AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
-          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
