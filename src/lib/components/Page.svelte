@@ -1,3 +1,11 @@
+<script>
+  export let title;
+</script>
+
+<svelte:head>
+  <title>{title} | Revolution</title>
+</svelte:head>
+
 <main>
   <div class="content">
     <slot />

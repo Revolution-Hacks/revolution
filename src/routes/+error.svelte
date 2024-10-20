@@ -3,7 +3,7 @@
   import Page from '$lib/components/Page.svelte';
 </script>
 
-<Page>
+<Page title={`Error ${$page.status}!`}>
   <div class="error-message">
     {#if $page.status === 404}
       <h1>We couldn't find that one</h1>

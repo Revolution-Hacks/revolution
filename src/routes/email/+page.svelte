@@ -5,7 +5,7 @@
 </script>
 
 {#if $page.status === 200}
-  <Page>
+  <Page title="Confirm your email address">
     <h1>Almost there</h1>
     <p>
       You'll get an email asking you to confirm that you want to get emails from us.

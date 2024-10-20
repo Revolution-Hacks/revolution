@@ -23,7 +23,7 @@
   <h2 {id}><a href={`#${id}`}>{name}</a></h2>
 {/snippet}
 
-<Page>
+<Page title="Revolution Privacy Policy">
   <h1>Revolution Privacy Policy</h1>
   {@render header('overview', 'Overview')}
   <p>
