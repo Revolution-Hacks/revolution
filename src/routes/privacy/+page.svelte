@@ -62,7 +62,7 @@
   {@render header('information-collected', 'What information do we collect and why?')}
   <p>
     In general, we do not collect information that you do not explicitly provide to us. However, when you visit our
-    site, we may collect:
+    site or interact with our emails, we may collect:
   </p>
   <ul>
     <li>your {@render term('IP address')},</li>
