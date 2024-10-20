@@ -42,7 +42,7 @@
     Protection Act 2018.
   </p>
   {@render header('table-of-contents', 'Table of contents')}
-  <ul>
+  <ul role="navigation" aria-labelledby="table-of-contents">
     <li><a href="#key-terms">Key terms</a></li>
     <li><a href="#information-collected">What information do we collect and why?</a></li>
     <li><a href="#storage">How do you store my data?</a></li>
