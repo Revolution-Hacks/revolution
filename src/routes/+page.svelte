@@ -269,7 +269,8 @@
         gap: 0.5em;
         font-weight: 500;
         max-width: 24em;
-        flex: 1;
+        min-width: 0;
+        flex: 1 1 0;
         color: inherit;
 
         // If the below hack stops working, at least make the box still accessible
@@ -278,12 +279,13 @@
         input {
           font-weight: 600;
           background: none;
-          padding: 0 2em;
+          padding: 0 1em 0 2em;
           height: 3em;
           color: inherit;
+          min-width: 0;
 
-          @include style.box-texture('$lib/textures/inputbox.svg');
           @include style.hover;
+          @include style.box-texture('$lib/textures/inputbox.svg');
 
           &::placeholder {
             color: inherit;
@@ -305,10 +307,10 @@
       }
 
       button {
-        height: 3em;
-        width: 3em;
+        min-height: 3em;
+        min-width: 3em;
         background: none;
-        flex: none;
+        flex: 0 0 3em;
         @include style.box-texture('$lib/textures/inputbox.svg');
         @include style.hover;
 
