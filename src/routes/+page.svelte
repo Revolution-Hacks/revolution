@@ -65,7 +65,7 @@
 
   <div class="info-card">
     <h2>Who is Revolution for?</h2>
-    <p>Revolution is for teenagers under 18 and is <b>completely free to attend</b>.</p>
+    <p>Revolution is for teenagers under 18 and is <strong>completely free to attend</strong>.</p>
   </div>
 
   <div class="info-card">
