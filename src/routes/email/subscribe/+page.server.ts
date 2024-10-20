@@ -13,14 +13,16 @@ export const actions = {
     }
 
     const payload = await validateSubscribeToken(token);
-    
-    await table.update([{
-      id: payload.id,
-      fields: {
-        "Verified": true
+
+    await table.update([
+      {
+        id: payload.id,
+        fields: {
+          Verified: true
+        }
       }
-    }])
-    
+    ]);
+
     return redirect(303, '/email/subscribe/thanks');
   }
 } satisfies Actions;

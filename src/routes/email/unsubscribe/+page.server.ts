@@ -13,15 +13,19 @@ export const load: PageServerLoad = async ({ url }) => {
 
   const payload = await validateUnsubscribeToken(token);
 
-  await table.select({
-    filterByFormula: `'{Email}' = '${payload.email}'`
-  }).eachPage(async (records, nextPage) => {
-    await table.destroy(records.map((v) => {
-      return v.getId();
-    }));
-    
-    nextPage();
-  });
-  
+  await table
+    .select({
+      filterByFormula: `'{Email}' = '${payload.email}'`
+    })
+    .eachPage(async (records, nextPage) => {
+      await table.destroy(
+        records.map((v) => {
+          return v.getId();
+        })
+      );
+
+      nextPage();
+    });
+
   return redirect(303, '/email/unsubscribe/thanks');
 };

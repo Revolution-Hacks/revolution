@@ -5,17 +5,20 @@
     'Data Subject': 'The person we have collected data from.',
     'Data Processing Agreement':
       'The agreement between us and a third party that states their rights and obligations to us and to them concerning the protection of their personal data.',
-    'Personal Data': 'Any data that could be used to identify someone, for example, names, email address or IP addresses.',
-    "Sensitive Personal Data":
-    "Any data that, under the DPA, must be treated with extra care, such as infomation relating to Race/Ethnicity, Health, Political Opinions and more.",
+    'Personal Data':
+      'Any data that could be used to identify someone, for example, names, email address or IP addresses.',
+    'Sensitive Personal Data':
+      'Any data that, under the DPA, must be treated with extra care, such as infomation relating to Race/Ethnicity, Health, Political Opinions and more.',
     'IP address': 'A series of numbers that represents the network you are currently on.',
-    'Approximate Location': 'An estimated location based on your IP address, for example, the country and city you live in.',
+    'Approximate Location':
+      'An estimated location based on your IP address, for example, the country and city you live in.',
     'Legitimate Interests':
       'Processing your data for the interests of Revolution or third parties while balancing your interests, rights and freedoms.',
     'User Agent':
       'A piece of text that identifies the browser or email client you are using, as well as what device and operating system you use.',
     'Encrypted at Rest': 'Data that is encrypted while it is being stored and not used.',
-    'Encrypted in Flight / Transmission': 'Data that is encrypted while it is being transferred from one machine to another.'
+    'Encrypted in Flight / Transmission':
+      'Data that is encrypted while it is being transferred from one machine to another.'
   };
 </script>
 
@@ -84,9 +87,14 @@
     <li>your {@render term('User Agent')}.</li>
   </ul>
   <p>
-    We collect this information to improve Revolution, which allows us to improve the event experience for you. For example, if we know how many people from outside the UK are interested in attending Revolution, we can approximate how much funding we will need to set aside for travel grants.
+    We collect this information to improve Revolution, which allows us to improve the event experience for you. For
+    example, if we know how many people from outside the UK are interested in attending Revolution, we can approximate
+    how much funding we will need to set aside for travel grants.
   </p>
-  <p>When you sign up to recieve emails from us, we store your email so that we can send you emails relating to Revolution in the future.</p>
+  <p>
+    When you sign up to recieve emails from us, we store your email so that we can send you emails relating to
+    Revolution in the future.
+  </p>
 
   {@render header('storage', 'How do you store my data?')}
   <p>
@@ -100,13 +108,16 @@
   </ul>
   <p>
     Your data is {@render term('Encrypted at Rest')} and {@render term('Encrypted in Flight')} using secure encryption algorithms.
-    We consider the protection of your personal information to be our highest priority. Our teams only have access to the data nessecary to fufil their roles, and nothing more.
+    We consider the protection of your personal information to be our highest priority. Our teams only have access to the
+    data nessecary to fufil their roles, and nothing more.
   </p>
 
   {@render header('retention', 'When will you delete my information?')}
   <p>
-    We will securely erase all of your personal data with the exception of name and email address no later than 1 month after the conclusion of Revolution, and we will securely erase your name and email address no later than one year after you have provided it
-    to us. Under the Data Protection Act, you have the right to erasure. If you would like your information deleted sooner, you may reach out to us at
+    We will securely erase all of your personal data with the exception of name and email address no later than 1 month
+    after the conclusion of Revolution, and we will securely erase your name and email address no later than one year
+    after you have provided it to us. Under the Data Protection Act, you have the right to erasure. If you would like
+    your information deleted sooner, you may reach out to us at
     <a href="mailto:policy@revohacks.com">policy@revohacks.com</a>.
   </p>
 
@@ -140,10 +151,12 @@
       {@render term('Legitimate Interests')}.
     </li>
   </ul>
+
   <p>
-
-  <p>To make subject access requests, update your records, or exercise any other rights you hold under the Data Protection Act, please reach out to us via <a href="mailto:policy@revohacks.com">policy@revohacks.com</a></p>
-
+    To make subject access requests, update your records, or exercise any other rights you hold under the Data
+    Protection Act, please reach out to us via <a href="mailto:policy@revohacks.com">policy@revohacks.com</a>
+  </p>
+  <p>
     <strong>This is not legal advice.</strong> Learn more on
     <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/">
       ico.org.uk

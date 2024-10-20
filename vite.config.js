@@ -19,5 +19,9 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  build: {
+    cssMinify: 'lightningcss',
+    modulePreload: false
+  }
 });

@@ -20,31 +20,40 @@ export const actions = {
       return fail(400);
     }
 
-    const existingRecord = await table.select({
-      maxRecords: 1,
-      filterByFormula: `{Email} = '${email}'`
-    }).firstPage();
-    
+    const existingRecord = await table
+      .select({
+        maxRecords: 1,
+        filterByFormula: `{Email} = '${email}'`
+      })
+      .firstPage();
+
     let airtableId: string;
     if (existingRecord.length == 0) {
-      airtableId = (await table.create({
-        Email: email,
-        Verified: false
-      })).getId();
+      airtableId = (
+        await table.create({
+          Email: email,
+          Verified: false
+        })
+      ).getId();
     } else {
-      if (existingRecord[0].get("Verified")) {
+      if (existingRecord[0].get('Verified')) {
         // They're already subscribed...
         return redirect(303, '/email/subscribe/thanks');
       }
-      
+
       airtableId = existingRecord[0].getId();
     }
-    
+
     const token = await createSubscribeToken(email, airtableId);
-    sendEmail(email, NewsletterVerify, {
+    sendEmail(
       email,
-      url: `${url.origin}/email/subscribe?token=${token}`
-    }, url);
+      NewsletterVerify,
+      {
+        email,
+        url: `${url.origin}/email/subscribe?token=${token}`
+      },
+      url
+    );
 
     return redirect(303, '/email');
   }
