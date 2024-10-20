@@ -16,7 +16,7 @@
   <div class="wall-top"></div>
   <div class="grid">
     <DoubleArrow class="logo" />
-    <p class="header">Revolution</p>
+    <a class="header" href="/">Revolution</a>
     <div class="content">
       <ul>
         <li><a href="https://hackclub.com/slack/">Hack Club Slack (talk to us!)</a></li>
@@ -144,6 +144,7 @@
         grid-area: 1 / 2 / 1 / 2;
         font-size: 3em;
         min-width: max-content;
+        text-decoration: none;
       }
 
       .content {
