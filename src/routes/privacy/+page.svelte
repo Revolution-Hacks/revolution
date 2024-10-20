@@ -63,8 +63,8 @@
       <tbody>
         {#each Object.entries(glossary) as [term, definition]}
           <tr id={`term-${term.replaceAll(' ', '')}`}>
-            <td class="term">{term}</td>
-            <td class="definition">{definition}</td>
+            <td class="term">{term.charAt(0).toUpperCase() + term.slice(1)}</td>
+            <td class="definition">{definition.charAt(0).toUpperCase() + definition.slice(1)}</td>
           </tr>
         {/each}
       </tbody>
@@ -192,9 +192,5 @@
     a {
       text-decoration: none;
     }
-  }
-
-  .term {
-    text-transform: capitalize;
   }
 </style>
