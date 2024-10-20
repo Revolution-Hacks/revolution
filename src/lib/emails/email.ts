@@ -53,6 +53,8 @@ export async function sendEmail<T extends Record<string, any>>(
       })
     })
   ).json();
+  
+  console.log(emailResponse);
 
   if (emailResponse.ErrorCode !== 0) {
     console.error(`Failed to send an email: ${emailResponse.Message}`);
