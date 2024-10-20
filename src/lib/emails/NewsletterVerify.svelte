@@ -9,8 +9,8 @@
 <svelte:head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-  <meta name="color-scheme" content="light dark">
-  <meta name="supported-color-schemes" content="light dark">
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
 </svelte:head>
 
 <div class="main">
@@ -37,6 +37,11 @@
   <p>This is a transactional email. You cannot unsubscribe from it.</p>
   <p>10 Downing Street, London, SW1A 2AA</p>
   <p><a href="https://revohacks.com">Revolution</a></p>
+  <p>
+    Revolution is fiscally sponsored by The Hack Foundation (d.b.a Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499).
+    Revolution is not an official Hack Club event. Use of Hack Club branding does not constitute an endorsement, implied
+    or otherwise, of Revolution by Hack Club.
+  </p>
 </div>
 
 <style lang="scss">
