@@ -1,27 +1,26 @@
-import type { PageServerLoad } from './$types';
 import { env } from '$env/dynamic/private';
+import { sendEmail } from '$lib/emails/email';
 import { validateSubscribeToken } from '$lib/jwt';
-import { redirect } from '@sveltejs/kit';
+import { redirect, type Actions } from '@sveltejs/kit';
+import table from '$lib/airtable';
 
-export const load: PageServerLoad = async ({ url }) => {
-  const token = url.searchParams.get('token');
+export const actions = {
+  default: async ({ url }) => {
+    const token = url.searchParams.get('token');
 
-  if (token === null) {
-    return redirect(303, '/');
-  }
+    if (token === null) {
+      return redirect(303, '/');
+    }
 
-  const payload = await validateSubscribeToken(token);
-
-  await fetch(`https://api.airtable.com/v0/${env.AIRTABLE_BASE}/${env.AIRTABLE_TABLE}/${payload.id}`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${env.AIRTABLE_TOKEN}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+    const payload = await validateSubscribeToken(token);
+    
+    await table.update([{
+      id: payload.id,
       fields: {
-        Verified: true
+        "Verified": true
       }
-    })
-  });
-};
+    }])
+    
+    return redirect(303, '/email/subscribe/thanks');
+  }
+} satisfies Actions;

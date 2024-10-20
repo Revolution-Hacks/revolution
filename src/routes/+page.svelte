@@ -327,7 +327,7 @@
       font-size: 0.9em;
     }
   }
-  
+
   // 1.4.12 Text Spacing - Level AA
   /*
   :global(*) {

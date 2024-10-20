@@ -13,9 +13,11 @@ $size_md: 48rem;
 $size_lg: 64rem;
 
 @mixin brick-texture($additional_backgrounds...) {
-  background:
-    $additional_backgrounds,
-    repeat url('$lib/textures/brick.svg') left/64px;
+  & {
+    background:
+      $additional_backgrounds,
+      repeat url('$lib/textures/brick.svg') left/64px;
+  }
 
   @media (max-width: $size_sm) {
     background:
@@ -25,9 +27,11 @@ $size_lg: 64rem;
 }
 
 @mixin box-texture($image) {
-  border-image: url($image);
-  border-image-slice: 8 fill;
-  border-image-width: 16px 16px;
+  & {
+    border-image: url($image);
+    border-image-slice: 8 fill;
+    border-image-width: 16px 16px;
+  }
 }
 
 @mixin hover {
