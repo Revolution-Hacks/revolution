@@ -13,7 +13,7 @@
 </svelte:head>
 
 {#snippet email()}
-  <form action="/email" method="post" class="email-form">
+  <form action="/email" method="post" class="email-form" aria-label="Email signup form" name="Email signup form">
     <div class="inputs">
       <label>
         <span class="email-label">Your email:</span>
