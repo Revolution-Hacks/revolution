@@ -63,8 +63,8 @@
       <tbody>
         {#each Object.entries(glossary) as [term, definition]}
           <tr id={`term-${term.replaceAll(' ', '')}`}>
-            <td>{term}</td>
-            <td>{definition}</td>
+            <td class="term">{term}</td>
+            <td class="definition">{definition}</td>
           </tr>
         {/each}
       </tbody>
@@ -159,8 +159,9 @@
   @use 'src/lib/style';
 
   .table-wrapper {
+    padding: 1em;
+
     @include style.box-texture('$lib/textures/containerbox.svg');
-    padding: 2em;
   }
 
   table {
@@ -171,8 +172,18 @@
 
   th,
   td {
-    border: 1px solid rgba(var(--fg), 50%);
-    padding: 0.5em;
+    // border: 1px solid rgba(var(--fg), 50%);
+    text-align: left;
+    padding: 0.5em 1em;
+  }
+
+  th:first-child,
+  td:first-child {
+    border-right: thin solid rgba(var(--fg), 50%);
+  }
+
+  td {
+    border-top: thin solid rgba(var(--fg), 50%);
   }
 
   h2 {
@@ -181,5 +192,9 @@
     a {
       text-decoration: none;
     }
+  }
+
+  .term {
+    text-transform: capitalize;
   }
 </style>

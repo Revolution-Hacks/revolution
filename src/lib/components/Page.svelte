@@ -15,7 +15,7 @@
 <style lang="scss">
   .content {
     margin: auto;
-    padding: 4em;
+    padding: 4em 2em;
     width: 64em;
     max-width: 100%;
     display: flex;
