@@ -18,7 +18,7 @@
     <div class="inputs">
       <label>
         <span class="email-label">Your email:</span>
-        <input type="email" placeholder="hello@revohacks.com" name="email" required />
+        <input type="email" placeholder="hello@revohacks.com" name="email" autocomplete="email" required />
       </label>
       <button type="submit" aria-label="Submit"><Arrow class="arrow" /></button>
     </div>
