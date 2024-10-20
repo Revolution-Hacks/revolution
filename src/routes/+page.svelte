@@ -167,16 +167,15 @@
 
   // Title card content
   .first-screen-content {
-    position: absolute;
-    width: 100%;
-    height: 75%;
+    position: relative;
     z-index: 100;
     display: grid;
     grid-template-columns: auto min-content;
     grid-template-rows: min-content min-content;
     justify-content: center;
     align-content: center;
-    padding: 4em;
+    padding: 8em 4em;
+    margin: auto;
     gap: 1em;
     line-height: 1.2;
 
