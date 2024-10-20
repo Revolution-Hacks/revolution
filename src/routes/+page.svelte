@@ -1,7 +1,6 @@
 <script>
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
   import Gear from '$lib/images/gear.svg?component';
-  import { enhance } from '$app/forms';
   import Arrow from '$lib/images/arrow.svg?component';
 </script>
 
