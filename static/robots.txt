@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /_app/
+Disallow: /email
+Disallow: /email/
