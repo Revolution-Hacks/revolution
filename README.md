@@ -1,6 +1,6 @@
 # revolution
 
-This is the site for Revolution, a UK hackathon in 2025. We'd love to see you there!
+This is the site for [Revolution](https://revohacks.com/), a UK hackathon in 2025. We'd love to see you there!
 
 ## Getting started
 
