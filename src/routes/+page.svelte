@@ -179,6 +179,7 @@
       :global(svg) {
         width: 100%;
         height: 100%;
+        filter: drop-shadow(4px 8px 8px rgba(0, 0, 0, 0.2));
       }
 
       :global(path) {
