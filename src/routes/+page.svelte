@@ -44,8 +44,13 @@
         {@render email()}
       </div>
     </div>
-    <div class="track"></div>
-    <div class="track-bridge"></div>
+    <div class="track">
+      <div class="train" style="animation-delay: -5s;"></div>
+      <div class="train reverse" style="animation-delay: 5s;"></div>
+    </div>
+    <div class="track-bridge" style="animation-delay: 10s;">
+      <div class="train"></div>
+    </div>
     <div class="gear first">
       <Gear />
     </div>
@@ -92,28 +97,58 @@
     overflow-x: clip;
 
     .track {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateX(-4em) rotate(-60deg);
       background: repeat space url('$lib/textures/track.svg') left/8em;
       height: 18em;
-      width: max(200vw, 200vh);
+      width: max(200vmax, 600em);
     }
 
     .track-bridge {
       display: none;
+      flex-direction: column;
+      justify-content: center;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateX(-4em) rotate(20deg);
       height: 12em;
-      width: max(200vw, 200vh);
+      width: max(200vmax, 600em);
 
       @include style.brick-texture(repeat space url('$lib/textures/track.svg') left/8em);
 
       @media (min-width: style.$size_sm) {
-        display: block;
+        display: flex;
+      }
+    }
+    
+    .train {
+      height: 8em;
+      // 149em comes from 2388px (width of SVG) / 16px
+      background: no-repeat space url('$lib/images/train.svg') left/149em;
+      animation: 30s linear infinite train;
+      
+      &.reverse {
+        transform: rotate(0.5turn);
+      }
+      
+      @keyframes train {
+        from {
+          background-position-x: -450%;
+        }
+        
+        to {
+          background-position-x: 550%;
+        }
+      }
+      
+      @media (prefers-reduced-motion) {
+        display: none;
       }
     }
 
@@ -160,6 +195,10 @@
         &.third {
           display: block;
         }
+      }
+      
+      @media (prefers-reduced-motion) {
+        animation: none;
       }
     }
   }
