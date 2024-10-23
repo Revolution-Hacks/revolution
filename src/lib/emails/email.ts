@@ -58,9 +58,9 @@ export async function sendEmail<T extends Record<string, any>>(
 
   if (emailResponse.ErrorCode !== 0) {
     if (emailResponse.ErrorCode === 300) {
-      throw error(400, { message: 'Invalid email address' })
+      throw error(400, { message: 'Invalid email address' });
     }
-    
+
     console.error(`Failed to send an email: ${emailResponse.Message}`);
     throw error(500, { message: 'Internal server error' });
   }

@@ -11,7 +11,7 @@
     name="description"
     content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!"
   />
-  <meta name="og:image" content="{SocialMediaCard}">
+  <meta name="og:image" content={SocialMediaCard} />
 </svelte:head>
 
 {#snippet email()}
@@ -128,46 +128,47 @@
         display: flex;
       }
     }
-    
+
     .train-track {
       position: relative;
       height: 8em;
-      
-      &::before, &::after {
+
+      &::before,
+      &::after {
         position: absolute;
         display: block;
-        content: "";
+        content: '';
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
       }
-      
+
       &::before {
         background: repeat space url('$lib/textures/track.svg') left/8em;
       }
-      
+
       &::after {
         // 149em comes from 2388px (width of SVG) / 16px
         background: no-repeat space url('$lib/images/train.svg') left/149em;
         animation: 30s linear infinite train;
         animation-delay: var(--animation-delay);
       }
-      
+
       &.reverse::after {
         transform: rotate(0.5turn);
       }
-      
+
       @keyframes train {
         from {
           background-position-x: -450%;
         }
-        
+
         to {
           background-position-x: 550%;
         }
       }
-      
+
       @media (prefers-reduced-motion) {
         display: none;
       }
@@ -218,7 +219,7 @@
           display: block;
         }
       }
-      
+
       @media (prefers-reduced-motion) {
         animation: none;
       }

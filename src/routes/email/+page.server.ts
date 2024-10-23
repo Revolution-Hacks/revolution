@@ -19,8 +19,8 @@ export const actions = {
     if (email instanceof File) {
       return fail(400, { message: 'Attempted to upload a file?' });
     }
-    
-    if (email.includes('\'') || email.includes('\\')) {
+
+    if (email.includes("'") || email.includes('\\')) {
       return fail(400, { message: 'Forbidden characters used' });
     }
 
@@ -41,7 +41,7 @@ export const actions = {
           })
         ).getId();
       } catch (_) {
-        return fail(400, { message: "Invalid email address" })
+        return fail(400, { message: 'Invalid email address' });
       }
     } else {
       if (existingRecord[0].get('Verified')) {
