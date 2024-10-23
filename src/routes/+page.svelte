@@ -11,7 +11,7 @@
     name="description"
     content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!"
   />
-  <meta name="og:image" content={SocialMediaCard}>
+  <meta name="og:image" content="{SocialMediaCard}">
 </svelte:head>
 
 {#snippet email()}
