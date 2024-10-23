@@ -118,6 +118,7 @@
       transform: translate(-50%, -50%) translateX(-4em) rotate(20deg);
       height: 12em;
       width: max(200vmax, 600em);
+      box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
 
       @include style.brick-texture;
 
@@ -297,6 +298,7 @@
     max-width: calc(100vw - 4em);
     width: 64em;
     padding: 2em 2em;
+    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
 
     @include style.box-texture('$lib/textures/containerbox.svg');
   }
