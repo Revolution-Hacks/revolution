@@ -17,11 +17,11 @@ export const actions = {
     }
 
     if (email instanceof File) {
-      return fail(400);
+      throw fail(400, { message: 'Attempted to upload a file?' });
     }
     
     if (email.includes('\'') || email.includes('\\')) {
-      return fail(400);
+      throw fail(400, { message: 'Forbidden characters used' });
     }
 
     const existingRecord = await table

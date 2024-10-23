@@ -9,7 +9,7 @@
       <h1>We couldn't find that one</h1>
       <p>This page does not exist. If you typed in a URL check to see if it is correct.</p>
     {:else if $page.status === 400}
-      <h1>Bad request</h1>
+      <h1>Bad request:<br />{$page.error?.message}</h1>
       <p>You may have entered in wrong information or the link you followed has expired. Try again?</p>
     {:else if $page.status >= 400 && $page.status < 500}
       <h1>Client error:<br />{$page.status} {$page.error?.message}</h1>
