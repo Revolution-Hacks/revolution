@@ -176,7 +176,6 @@
     padding: 8em 4em;
     margin: auto;
     gap: 1em;
-    line-height: 1.2;
 
     :global(.logo) {
       /* I'm not sure why this is needed. Maybe because it's another component */
@@ -189,6 +188,7 @@
     .header {
       grid-area: 1 / 2 / 1 / 2;
       font-size: 3em;
+      line-height: 1em;
       min-width: max-content;
     }
 
@@ -198,6 +198,7 @@
 
       .hero {
         font-size: 1.5em;
+        line-height: 1.2em;
       }
 
       .email-title {
