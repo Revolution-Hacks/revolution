@@ -4,7 +4,7 @@ import juice from 'juice';
 import type { Component } from 'svelte';
 import { render } from 'svelte/server';
 import DevFooter from '$lib/emails/DevFooter.svelte';
-import { error, fail } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 
 export function renderEmail<T extends Record<string, any>>(
   component: Component<T & { host: URL }>,
@@ -57,6 +57,10 @@ export async function sendEmail<T extends Record<string, any>>(
   console.log(emailResponse);
 
   if (emailResponse.ErrorCode !== 0) {
+    if (emailResponse.ErrorCode === 300) {
+      throw error(400, { message: 'Invalid email address' })
+    }
+    
     console.error(`Failed to send an email: ${emailResponse.Message}`);
     throw error(500, { message: 'Internal server error' });
   }
