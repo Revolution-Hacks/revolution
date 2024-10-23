@@ -1,6 +1,6 @@
 # Revolution
 
-This is the site for [Revolution](https://revohacks.com/), a UK industurial revolution themed hackathon in 2025. We'd love to see you there!
+This is the site for [Revolution](https://revohacks.com/), an Industrial Revolution themed hackathon hosted in the UK for summer 2025. We'd love to see you there!
 
 ## Getting started
 
