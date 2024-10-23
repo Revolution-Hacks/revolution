@@ -22,7 +22,6 @@
         <li><a href="https://hackclub.com/slack/">Hack Club Slack (talk to us!)</a></li>
         <li><a href="https://github.com/Revolution-Hacks/revolution">Source code</a></li>
         <li><a href="https://hcb.hackclub.com/revolution">Financials</a></li>
-        <li><a href="/safeguarding">Safeguarding</a></li>
         <li><a href="mailto:hello@revohacks.com">Email us</a></li>
       </ul>
 
