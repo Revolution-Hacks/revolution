@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="track">
-      <div class="train" style="animation-delay: -5s;"></div>
+      <div class="train" style="animation-delay: -10s;"></div>
       <div class="train reverse" style="animation-delay: 5s;"></div>
     </div>
     <div class="track-bridge" style="animation-delay: 10s;">
