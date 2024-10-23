@@ -53,7 +53,7 @@ export async function sendEmail<T extends Record<string, any>>(
       })
     })
   ).json();
-  
+
   console.log(emailResponse);
 
   if (emailResponse.ErrorCode !== 0) {

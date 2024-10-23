@@ -46,7 +46,7 @@
 
   @font-face {
     font-family: 'Revolution Sans ASCII';
-    font-display: swap;
+    font-display: block;
     src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
 
