@@ -56,8 +56,6 @@
     color: rgb(var(--fg));
     
     // WebKit does this for some reason
-    -webkit-font-smoothing: subpixel-antialiased;
-    text-rendering: geometricPrecision;
     font-synthesis: none;
   }
 
