@@ -179,6 +179,7 @@
   }
   
   :global(h1, h2, h3, h4, h5, h6) {
+    font-variation-settings: 'opsz' 40;
     font-weight: bolder;
     font-size: inherit;
   }
