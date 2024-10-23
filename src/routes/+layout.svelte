@@ -40,13 +40,13 @@
 
   @font-face {
     font-family: 'Revolution Sans Title';
-    display: swap;
+    font-display: block;
     src: url('$lib/fonts/DMSans.title.woff2'), local('DM Sans');
   }
 
   @font-face {
     font-family: 'Revolution Sans ASCII';
-    display: swap;
+    font-display: swap;
     src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
 
