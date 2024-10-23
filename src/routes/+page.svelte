@@ -371,6 +371,7 @@
         min-height: 3em;
         min-width: 3em;
         background: none;
+        padding: 0;
         flex: 0 0 3em;
         @include style.box-texture('$lib/textures/inputbox.svg');
         @include style.hover;
