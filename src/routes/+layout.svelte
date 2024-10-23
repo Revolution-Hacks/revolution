@@ -57,6 +57,9 @@
     
     // WebKit does this for some reason
     font-synthesis: none;
+    
+    // Scrollbar
+    color-scheme: dark;
   }
 
   @keyframes -global-rotate {
