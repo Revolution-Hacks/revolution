@@ -17,11 +17,11 @@ export const actions = {
     }
 
     if (email instanceof File) {
-      throw fail(400, { message: 'Attempted to upload a file?' });
+      return fail(400, { message: 'Attempted to upload a file?' });
     }
     
     if (email.includes('\'') || email.includes('\\')) {
-      throw fail(400, { message: 'Forbidden characters used' });
+      return fail(400, { message: 'Forbidden characters used' });
     }
 
     const existingRecord = await table
@@ -33,12 +33,16 @@ export const actions = {
 
     let airtableId: string;
     if (existingRecord.length == 0) {
-      airtableId = (
-        await table.create({
-          Email: email,
-          Verified: false
-        })
-      ).getId();
+      try {
+        airtableId = (
+          await table.create({
+            Email: email,
+            Verified: false
+          })
+        ).getId();
+      } catch (_) {
+        return fail(400, { message: "Invalid email address" })
+      }
     } else {
       if (existingRecord[0].get('Verified')) {
         // They're already subscribed...
