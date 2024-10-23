@@ -16,7 +16,7 @@ export const handle: Handle = async ({ event, resolve }) => {
       ?.split(',')
       ?.filter((v) => !v.includes('.js')) || [];
 
-  for (const asset in PRELOADED_ASSETS) {
+  for (const asset of PRELOADED_ASSETS) {
     link.push(`<${asset}>; rel="preload"; as="font"; nopush`);
   }
 
