@@ -19,6 +19,10 @@ export const actions = {
     if (email instanceof File) {
       return fail(400);
     }
+    
+    if (email.includes('\'') || email.includes('\\')) {
+      return fail(400);
+    }
 
     const existingRecord = await table
       .select({
