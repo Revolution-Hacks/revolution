@@ -4,7 +4,7 @@ import juice from 'juice';
 import type { Component } from 'svelte';
 import { render } from 'svelte/server';
 import DevFooter from '$lib/emails/DevFooter.svelte';
-import { error, fail } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 
 export function renderEmail<T extends Record<string, any>>(
   component: Component<T & { host: URL }>,
