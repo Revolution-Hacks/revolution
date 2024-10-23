@@ -44,12 +44,12 @@
         {@render email()}
       </div>
     </div>
-    <div class="track">
-      <div class="train" style="animation-delay: -10s;"></div>
-      <div class="train reverse" style="animation-delay: 5s;"></div>
+    <div class="track-container">
+      <div class="train-track" style="--animation-delay: -10s;"></div>
+      <div class="train-track reverse" style="--animation-delay: 5s;"></div>
     </div>
-    <div class="track-bridge" style="animation-delay: 10s;">
-      <div class="train"></div>
+    <div class="track-bridge" style="--animation-delay: 10s;">
+      <div class="train-track"></div>
     </div>
     <div class="gear first">
       <Gear />
@@ -96,7 +96,7 @@
     min-height: 100vh;
     overflow-x: clip;
 
-    .track {
+    .track-container {
       display: flex;
       flex-direction: column;
       gap: 2em;
@@ -104,7 +104,6 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateX(-4em) rotate(-60deg);
-      background: repeat space url('$lib/textures/track.svg') left/8em;
       height: 18em;
       width: max(200vmax, 600em);
     }
@@ -120,20 +119,39 @@
       height: 12em;
       width: max(200vmax, 600em);
 
-      @include style.brick-texture(repeat space url('$lib/textures/track.svg') left/8em);
+      @include style.brick-texture;
 
       @media (min-width: style.$size_sm) {
         display: flex;
       }
     }
     
-    .train {
+    .train-track {
+      position: relative;
       height: 8em;
-      // 149em comes from 2388px (width of SVG) / 16px
-      background: no-repeat space url('$lib/images/train.svg') left/149em;
-      animation: 30s linear infinite train;
       
-      &.reverse {
+      &::before, &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      &::before {
+        background: repeat space url('$lib/textures/track.svg') left/8em;
+      }
+      
+      &::after {
+        // 149em comes from 2388px (width of SVG) / 16px
+        background: no-repeat space url('$lib/images/train.svg') left/149em;
+        animation: 30s linear infinite train;
+        animation-delay: var(--animation-delay);
+      }
+      
+      &.reverse::after {
         transform: rotate(0.5turn);
       }
       
@@ -161,6 +179,7 @@
       :global(svg) {
         width: 100%;
         height: 100%;
+        filter: drop-shadow(4px 8px 8px rgba(0, 0, 0, 0.2));
       }
 
       :global(path) {

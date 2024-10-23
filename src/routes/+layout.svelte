@@ -54,6 +54,9 @@
   :global(:root) {
     font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
     color: rgb(var(--fg));
+    
+    // WebKit does this for some reason
+    font-synthesis: none;
   }
 
   @keyframes -global-rotate {
@@ -140,6 +143,7 @@
       }
 
       .header {
+        font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
         font-weight: bold;
         grid-area: 1 / 2 / 1 / 2;
         font-size: 3em;
@@ -166,10 +170,14 @@
       }
     }
   }
-
+  
   // Global header styles
-  :global(h1, h2, h3, h4, h5, h6) {
+  :global(h1) {
     font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
+  }
+  
+  :global(h1, h2, h3, h4, h5, h6) {
+    font-variation-settings: 'opsz' 40;
     font-weight: bolder;
     font-size: inherit;
   }
