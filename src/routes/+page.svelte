@@ -11,6 +11,8 @@
     name="description"
     content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!"
   />
+  <meta property="og:type" content="website" />
+  <meta name="og:site_name" content="Revolution 2025" />
   <meta name="og:image" content={SocialMediaCard} />
 </svelte:head>
 
