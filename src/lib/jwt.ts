@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import { fail } from '@sveltejs/kit';
+import { error, fail } from '@sveltejs/kit';
 import { jwtVerify, SignJWT } from 'jose';
 
 const ISSUER = 'https://revohacks.com/';
@@ -52,11 +52,11 @@ export async function validateSubscribeToken(token: string): Promise<SubscribeTo
     ).payload as SubscribeToken;
   } catch (e) {
     console.error(`JWT validation error: ${e}`);
-    throw fail(400);
+    throw error(400, { message: 'Invalid or expired link' });
   }
 
   if (payload.version !== SUBSCRIBE_TOKEN_VERSION || payload.action !== 'subscribe') {
-    throw fail(400);
+    throw error(400, { message: 'Wrong endpoint for token' });
   }
 
   return payload;
@@ -104,11 +104,11 @@ export async function validateUnsubscribeToken(token: string): Promise<Unsubscri
     ).payload as UnsubscribeToken;
   } catch (e) {
     console.error(`JWT validation error: ${e}`);
-    throw fail(400);
+    throw error(400, { message: 'Invalid or expired link' });
   }
 
   if (payload.version !== SUBSCRIBE_TOKEN_VERSION || payload.action !== 'unsubscribe') {
-    throw fail(400);
+    throw error(400, { message: 'Wrong endpoint for token' });
   }
 
   return payload;

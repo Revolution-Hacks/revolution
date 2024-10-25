@@ -8,6 +8,8 @@
   <noscript><link rel="stylesheet" href={fonts} /></noscript>
   <!-- See app.html -->
   <link rel="preload" as="style" href={fonts} id="font-preload" />
+
+  <meta name="theme-color" content="#2C1B10" />
 </svelte:head>
 
 <slot />
@@ -41,13 +43,13 @@
 
   @font-face {
     font-family: 'Revolution Sans Title';
-    display: swap;
+    font-display: block;
     src: url('$lib/fonts/DMSans.title.woff2'), local('DM Sans');
   }
 
   @font-face {
     font-family: 'Revolution Sans ASCII';
-    display: swap;
+    font-display: block;
     src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
   }
 
@@ -55,6 +57,12 @@
   :global(:root) {
     font-family: 'Revolution Sans ASCII', 'Revolution Sans', 'system-ui', 'sans-serif';
     color: rgb(var(--fg));
+
+    // WebKit does this for some reason
+    font-synthesis: none;
+
+    // Scrollbar
+    color-scheme: dark;
   }
 
   @keyframes -global-rotate {
@@ -141,6 +149,7 @@
       }
 
       .header {
+        font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
         font-weight: bold;
         grid-area: 1 / 2 / 1 / 2;
         font-size: 3em;
@@ -169,8 +178,12 @@
   }
 
   // Global header styles
-  :global(h1, h2, h3, h4, h5, h6) {
+  :global(h1) {
     font-family: 'Revolution Sans Title', 'Revolution Sans ASCII', 'Revolution Sans', system-ui, sans-serif;
+  }
+
+  :global(h1, h2, h3, h4, h5, h6) {
+    font-variation-settings: 'opsz' 40;
     font-weight: bolder;
     font-size: inherit;
   }

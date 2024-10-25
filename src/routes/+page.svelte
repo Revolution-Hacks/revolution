@@ -2,6 +2,7 @@
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
   import Gear from '$lib/images/gear.svg?component';
   import Arrow from '$lib/images/arrow.svg?component';
+  import SocialMediaCard from '$lib/images/social-media-card.png?url';
 </script>
 
 <svelte:head>
@@ -10,6 +11,11 @@
     name="description"
     content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!"
   />
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Revolution 2025" />
+  <meta name="og:image" content={SocialMediaCard} />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:src" content={SocialMediaCard}>
 </svelte:head>
 
 {#snippet email()}
@@ -44,8 +50,13 @@
         {@render email()}
       </div>
     </div>
-    <div class="track"></div>
-    <div class="track-bridge"></div>
+    <div class="track-container">
+      <div class="train-track" style="--animation-delay: -10s;"></div>
+      <div class="train-track reverse" style="--animation-delay: 5s;"></div>
+    </div>
+    <div class="track-bridge" style="--animation-delay: 10s;">
+      <div class="train-track"></div>
+    </div>
     <div class="gear first">
       <Gear />
     </div>
@@ -91,29 +102,79 @@
     min-height: 100vh;
     overflow-x: clip;
 
-    .track {
+    .track-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateX(-4em) rotate(-60deg);
-      background: repeat space url('$lib/textures/track.svg') left/8em;
       height: 18em;
-      width: max(200vw, 200vh);
+      width: max(200vmax, 600em);
     }
 
     .track-bridge {
       display: none;
+      flex-direction: column;
+      justify-content: center;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateX(-4em) rotate(20deg);
       height: 12em;
-      width: max(200vw, 200vh);
+      width: max(200vmax, 600em);
+      box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
 
-      @include style.brick-texture(repeat space url('$lib/textures/track.svg') left/8em);
+      @include style.brick-texture;
 
       @media (min-width: style.$size_sm) {
+        display: flex;
+      }
+    }
+
+    .train-track {
+      position: relative;
+      height: 8em;
+
+      &::before,
+      &::after {
+        position: absolute;
         display: block;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &::before {
+        background: repeat space url('$lib/textures/track.svg') left/8em;
+      }
+
+      &::after {
+        // 149em comes from 2388px (width of SVG) / 16px
+        background: no-repeat space url('$lib/images/train.svg') left/149em;
+        animation: 30s linear infinite train;
+        animation-delay: var(--animation-delay);
+      }
+
+      &.reverse::after {
+        transform: rotate(0.5turn);
+      }
+
+      @keyframes train {
+        from {
+          background-position-x: -450%;
+        }
+
+        to {
+          background-position-x: 550%;
+        }
+      }
+
+      @media (prefers-reduced-motion) {
+        display: none;
       }
     }
 
@@ -126,6 +187,7 @@
       :global(svg) {
         width: 100%;
         height: 100%;
+        filter: drop-shadow(4px 8px 8px rgba(0, 0, 0, 0.2));
       }
 
       :global(path) {
@@ -161,6 +223,10 @@
           display: block;
         }
       }
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
     }
   }
 
@@ -176,7 +242,6 @@
     padding: 8em 4em;
     margin: auto;
     gap: 1em;
-    line-height: 1.2;
 
     :global(.logo) {
       /* I'm not sure why this is needed. Maybe because it's another component */
@@ -189,6 +254,7 @@
     .header {
       grid-area: 1 / 2 / 1 / 2;
       font-size: 3em;
+      line-height: 1em;
       min-width: max-content;
     }
 
@@ -198,6 +264,7 @@
 
       .hero {
         font-size: 1.5em;
+        line-height: 1.2em;
       }
 
       .email-title {
@@ -238,6 +305,7 @@
     max-width: calc(100vw - 4em);
     width: 64em;
     padding: 2em 2em;
+    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
 
     @include style.box-texture('$lib/textures/containerbox.svg');
   }
@@ -308,6 +376,7 @@
         min-height: 3em;
         min-width: 3em;
         background: none;
+        padding: 0;
         flex: 0 0 3em;
         @include style.box-texture('$lib/textures/inputbox.svg');
         @include style.hover;
