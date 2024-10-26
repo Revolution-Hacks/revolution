@@ -9,7 +9,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   const response = await resolve(event);
   
   // To be silly, send 2 gigabytes of <div>
-  if (response.status === 404 && event.url.pathname.includes("wp")) {
+  if (response.status === 404 && event.url.pathname.includes("wp-")) {
     return new Response(Bomb, {
       status: 200,
       headers: {
