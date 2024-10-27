@@ -80,10 +80,29 @@
 
   // Main element brick texture
   :global(main) {
+    position: relative;
     min-height: calc(100vh - 4em);
     overflow: clip;
+    z-index: -2;
 
     @include style.brick-texture(var(--overlay-brick));
+  }
+  
+  :global(main::before) {
+    content: '';
+    position: absolute;
+    display: block;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeat url('/api/background.svg') top left;
+    
+    @media (min-width: style.$size_sm) {
+      transform-origin: top left;
+      transform: scale(2);
+    }
   }
 
   // Footer styles

@@ -16,13 +16,13 @@ $size_lg: 64rem;
   & {
     background:
       $additional_backgrounds,
-      repeat url('$lib/textures/brick.svg') left/64px;
+      repeat url('$lib/textures/brick.svg') top left;
   }
 
-  @media (max-width: $size_sm) {
+  @media (min-width: $size_sm) {
     background:
       $additional_backgrounds,
-      repeat url('$lib/textures/brick.svg');
+      repeat url('$lib/textures/brick.svg') top left/64px;
   }
 }
 
