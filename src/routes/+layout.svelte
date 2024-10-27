@@ -88,6 +88,7 @@
     @include style.brick-texture(var(--overlay-brick));
   }
 
+  // Dynamic background support
   :global(main::before) {
     content: '';
     position: absolute;
