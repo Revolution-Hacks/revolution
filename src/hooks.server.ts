@@ -9,7 +9,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   // Disable JS preloading. This took hours to find.
   // I hate web development.
-  // TODO: Select assets to preload
   let link =
     response.headers
       .get('link')
