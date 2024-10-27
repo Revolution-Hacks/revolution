@@ -7,6 +7,8 @@
 
   let boxWidth = Math.ceil(width / 32);
   let boxHeight = Math.ceil(height / 16);
+  let svgWidth = boxWidth * 32;
+  let svgHeight = boxHeight * 16;
 
   // Perlin code derived from https://github.com/joeiddon/perlin/blob/master/perlin.js
 
@@ -49,7 +51,7 @@
   }
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" {width} {height} viewBox="0 0 {width} {height}">
+<svg xmlns="http://www.w3.org/2000/svg" width={svgWidth} height={svgHeight} viewBox="0 0 {svgWidth} {svgHeight}">
   <metadata>
     <seed>{seed}</seed>
     <width>{width}</width>
