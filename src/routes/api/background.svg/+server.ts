@@ -5,7 +5,9 @@ let WIDTH_HEADERS = ['Width', 'Viewport-Width', 'Sec-CH-Width', 'Sec-CH-Viewport
 let HEIGHT_HEADERS = ['Sec-CH-Viewport-Height'];
 let MOBILE_INDICATORS = ['mobile', 'android', 'iphone'];
 
-export default async ({ request }: { request: Request }) => {
+export const prerender = false;
+
+export const GET = async ({ request }: { request: Request }) => {
   // Try detect viewport height
   let width = 1920;
 
