@@ -43,13 +43,13 @@
   @font-face {
     font-family: 'Revolution Sans Title';
     font-display: block;
-    src: url('$lib/fonts/DMSans.title.woff2'), local('DM Sans');
+    src: url('$lib/fonts/DMSans.title.woff2?url'), local('DM Sans');
   }
 
   @font-face {
     font-family: 'Revolution Sans ASCII';
     font-display: block;
-    src: url('$lib/fonts/DMSans.text.woff2'), local('DM Sans');
+    src: url('$lib/fonts/DMSans.text.woff2?url'), local('DM Sans');
   }
 
   // Global font styles

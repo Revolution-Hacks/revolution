@@ -18,7 +18,6 @@ export const GET = async ({ request }: { request: Request }) => {
 
       if (isFinite(newWidth) && newWidth > 200) {
         width = parseInt(headerContent);
-        console.log(`Detected width: ${width}`);
         break;
       }
     }
@@ -34,7 +33,6 @@ export const GET = async ({ request }: { request: Request }) => {
 
       if (isFinite(newHeight) && newHeight > 200) {
         height = parseInt(headerContent);
-        console.log(`Detected height: ${height}`);
         break;
       }
     }
@@ -55,7 +53,6 @@ export const GET = async ({ request }: { request: Request }) => {
     }
 
     height = width * aspectRatio;
-    console.log(`Derived height: ${height}`);
   }
 
   // Now render the background and return it

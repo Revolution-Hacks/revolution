@@ -2,7 +2,7 @@ import TitleFontURL from '$lib/fonts/DMSans.title.woff2?url';
 import TextFontURL from '$lib/fonts/DMSans.text.woff2?url';
 import type { Handle } from '@sveltejs/kit';
 
-const PRELOADED_ASSETS = [TitleFontURL, TextFontURL];
+const PRELOADED_FONTS = [TitleFontURL, TextFontURL];
 
 export const handle: Handle = async ({ event, resolve }) => {
   const response = await resolve(event);
@@ -15,9 +15,11 @@ export const handle: Handle = async ({ event, resolve }) => {
       ?.split(',')
       ?.filter((v) => !v.includes('.js')) || [];
 
-  for (const asset of PRELOADED_ASSETS) {
-    link.push(`<${asset}>; rel="preload"; as="font"; nopush`);
+  for (const asset of PRELOADED_FONTS) {
+    link.push(`<${asset}>; rel="preload"; as="font"; crossorigin="anonymous"`);
   }
+  
+  link.push(`</api/background.svg>; rel="preload"; as="image";`);
 
   response.headers.set('link', link.join(','));
   response.headers.set(
