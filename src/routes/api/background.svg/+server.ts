@@ -17,7 +17,7 @@ export const GET = async ({ request }: { request: Request }) => {
       const newWidth = parseInt(headerContent);
 
       if (isFinite(newWidth) && newWidth > 200) {
-        width = parseInt(headerContent);
+        width = Math.abs(parseInt(headerContent));
         break;
       }
     }
@@ -29,10 +29,10 @@ export const GET = async ({ request }: { request: Request }) => {
   for (const header of HEIGHT_HEADERS) {
     const headerContent = request.headers.get(header);
     if (headerContent !== null) {
-      const newHeight = parseInt(headerContent);
+      const newHeight = Math.abs(parseInt(headerContent));
 
       if (isFinite(newHeight) && newHeight > 200) {
-        height = parseInt(headerContent);
+        height = newHeight;
         break;
       }
     }
@@ -46,14 +46,18 @@ export const GET = async ({ request }: { request: Request }) => {
     if (userAgent !== null) {
       for (const indicator of MOBILE_INDICATORS) {
         if (userAgent.toLowerCase().includes(indicator)) {
-          aspectRatio ^= -1;
+          aspectRatio **= -1;
           break;
         }
       }
     }
+    
+    console.log(`Derived aspect ratio ${aspectRatio}`)
 
     height = width * aspectRatio;
   }
+  
+  console.log(`${height} ${width}`);
 
   // Now render the background and return it
   // Create an insecure random seed from the request headers
