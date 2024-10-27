@@ -20,7 +20,10 @@ export const handle: Handle = async ({ event, resolve }) => {
   }
 
   response.headers.set('link', link.join(','));
-  response.headers.set('Accept-CH', 'Width, Viewport-Width, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Viewport-Height, Sec-CH-UA-Mobile')
-  
+  response.headers.set(
+    'Accept-CH',
+    'Width, Viewport-Width, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Viewport-Height, Sec-CH-UA-Mobile'
+  );
+
   return response;
 };

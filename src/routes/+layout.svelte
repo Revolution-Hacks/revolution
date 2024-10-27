@@ -87,7 +87,7 @@
 
     @include style.brick-texture(var(--overlay-brick));
   }
-  
+
   :global(main::before) {
     content: '';
     position: absolute;
@@ -98,7 +98,7 @@
     width: 100%;
     height: 100%;
     background: repeat url('/api/background.svg') top left;
-    
+
     @media (min-width: style.$size_sm) {
       transform-origin: top left;
       transform: scale(2);
