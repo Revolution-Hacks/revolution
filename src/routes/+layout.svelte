@@ -43,7 +43,8 @@
   @font-face {
     font-family: 'Revolution Sans Title';
     font-display: block;
-    src: url('$lib/fonts/DMSans.title.woff2?url'), local('DM Sans');
+    // The font is a whopping 1 kilobyte. It's fine.
+    src: url('$lib/fonts/DMSans.title.woff2?inline'), local('DM Sans');
   }
 
   @font-face {

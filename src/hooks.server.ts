@@ -1,8 +1,7 @@
-import TitleFontURL from '$lib/fonts/DMSans.title.woff2?url';
 import TextFontURL from '$lib/fonts/DMSans.text.woff2?url';
 import type { Handle } from '@sveltejs/kit';
 
-const PRELOADED_FONTS = [TitleFontURL, TextFontURL];
+const PRELOADED_FONTS = [TextFontURL];
 
 export const handle: Handle = async ({ event, resolve }) => {
   const response = await resolve(event);
