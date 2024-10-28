@@ -1,6 +1,7 @@
 <script>
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
   import Gear from '$lib/images/gear.svg?component';
+  import Bricks from '$lib/images/rainbowbricks.svg?component';
 </script>
 
 <svelte:head>
@@ -14,6 +15,7 @@
 <slot />
 
 <footer>
+  <Bricks class="bricks" />
   <div class="wall-top"></div>
   <div class="grid">
     <DoubleArrow class="logo" />
@@ -145,6 +147,21 @@
       box-shadow: 0 0 1em rgba(0, 0, 0, 50%);
 
       @include style.brick-texture();
+    }
+    
+    :global(.bricks) {
+      display: none;
+      
+      @media (min-width: style.$size_sm) {
+        display: block;
+        position: absolute;
+        opacity: 5%;
+        mix-blend-mode: lighten;
+        top: 32px;
+        left: 32px;
+        transform-origin: top left;
+        transform: scale(2);
+      }
     }
 
     @media (min-width: style.$size_sm) {
