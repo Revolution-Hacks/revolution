@@ -84,7 +84,7 @@
     position: relative;
     min-height: calc(100vh - 4em);
     overflow: clip;
-    z-index: -2;
+    z-index: 0;
 
     @include style.brick-texture(var(--overlay-brick));
   }
