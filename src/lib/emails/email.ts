@@ -5,6 +5,7 @@ import type { Component } from 'svelte';
 import { render } from 'svelte/server';
 import DevFooter from '$lib/emails/DevFooter.svelte';
 import { error } from '@sveltejs/kit';
+import { dev } from '$app/environment';
 
 export function renderEmail<T extends Record<string, any>>(
   component: Component<T & { host: URL }>,
@@ -35,6 +36,11 @@ export async function sendEmail<T extends Record<string, any>>(
   host: URL
 ) {
   const { html, plain } = renderEmail(component, props, host);
+  
+  if (dev) {
+    console.log(`Sent email to ${recipient}: ${plain}`);
+    return;
+  }
 
   const emailResponse: any = await (
     await fetch('https://api.postmarkapp.com/email', {
@@ -53,8 +59,6 @@ export async function sendEmail<T extends Record<string, any>>(
       })
     })
   ).json();
-
-  console.log(emailResponse);
 
   if (emailResponse.ErrorCode !== 0) {
     if (emailResponse.ErrorCode === 300) {
