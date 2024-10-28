@@ -2,7 +2,6 @@
   import Page from '$lib/components/Page.svelte';
   import { onMount } from 'svelte';
   
-  let noscriptDiv = $state();
   let form = $state();
   
   onMount(() => {
@@ -18,7 +17,7 @@
     <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html `<style> .noscript { display: none } </style>`}
   </noscript>
-  <div class="noscript" bind:this={noscriptDiv}>
+  <div class="noscript">
     <h1>Please wait</h1>
     <p>We're confirming your e-mail address. If nothing happens within a few seconds, you can click the button below.</p>
   </div>
