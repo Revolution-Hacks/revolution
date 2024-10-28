@@ -1,13 +1,12 @@
 <script>
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
-  import fonts from '$lib/fonts.css?url';
   import Gear from '$lib/images/gear.svg?component';
 </script>
 
 <svelte:head>
-  <noscript><link rel="stylesheet" href={fonts} /></noscript>
+  <!-- <noscript><link rel="stylesheet" href={fonts} /></noscript> -->
   <!-- See app.html -->
-  <link rel="preload" as="style" href={fonts} id="font-preload" />
+  <!-- <link rel="preload" as="style" href={fonts} id="font-preload" /> -->
 
   <meta name="theme-color" content="#2C1B10" />
 </svelte:head>

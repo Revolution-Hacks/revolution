@@ -5,8 +5,8 @@
   export let height: number;
   export let seed: number;
 
-  let boxWidth = Math.ceil(width / 32);
-  let boxHeight = Math.ceil(height / 32) / 2;
+  let boxWidth = Math.ceil(Math.min(width, 1024) / 32);
+  let boxHeight = Math.ceil(Math.min(height, 1024) / 32) * 2;
   let svgWidth = boxWidth * 32;
   let svgHeight = boxHeight * 16;
 
