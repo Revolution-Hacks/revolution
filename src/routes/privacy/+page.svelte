@@ -26,8 +26,8 @@
   />
 </svelte:head>
 
-{#snippet term(definition)}
-  <a href={`#term-${definition.replaceAll(' ', '')}`} title={glossary[definition]}>{definition}</a>
+{#snippet term(definition, content = null)}
+  <a href={`#term-${definition.replaceAll(' ', '')}`} title={glossary[definition]}>{content || definition}</a>
 {/snippet}
 
 {#snippet header(id, name)}
@@ -92,7 +92,7 @@
   {@render header('storage', 'How do you store my data?')}
   <p>
     We store and process your data with various third-party services. Here are some of our third-party services and
-    their {@render term('data processing agreement')}s:
+    their {@render term('data processing agreement', 'data processing agreements')}:
   </p>
   <ul>
     <li><a href="https://postmarkapp.com/dpa">Postmark</a></li>
@@ -122,7 +122,7 @@
     </li>
     <li>
       <b>The right to access</b><br />
-      You have the right to know what informatin we hold about you.
+      You have the right to know what information we hold about you.
     </li>
     <li>
       <b>The right to rectification</b><br />
