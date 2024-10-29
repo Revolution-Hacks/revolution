@@ -120,9 +120,9 @@ const plugin: Plugin = {
       headerOutput += headers
         .map((v) => {
           let header = `<${v.path}>; rel=preload; as=${v.as}`;
-          if (v.as === 'style') {
+          // if (v.as === 'style') {
             header += '; crossorigin=anonymous';
-          }
+          // }
           return header;
         })
         .join(',');
