@@ -173,6 +173,10 @@ export default defineConfig({
   ],
   build: {
     cssMinify: 'lightningcss',
-    modulePreload: false
+    modulePreload: {
+      resolveDependencies(url, deps, context) {
+        return deps.filter((dep) => !dep.endsWith('.js'));
+      }
+    }
   }
 });

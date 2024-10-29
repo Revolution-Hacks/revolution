@@ -4,7 +4,12 @@ import type { Handle } from '@sveltejs/kit';
 const PRELOADED_FONTS = [TextFontURL];
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const response = await resolve(event);
+  // Also disable JS preloading in prerendered files
+  const response = await resolve(event, {
+    preload({ type }) {
+      return type != 'js' && type != 'asset';
+    }
+  });
 
   // Disable JS preloading. This took hours to find.
   // I hate web development.
