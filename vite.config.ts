@@ -3,7 +3,7 @@ import { defineConfig, type Plugin, type ResolvedConfig } from 'vite';
 import svg from '@poppanator/sveltekit-svg';
 
 let HEADERS = `
-*
+/*
   Accept-CH: Width, Viewport-Width, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Viewport-Height, Sec-CH-UA-Mobile
 `.trim();
 let ROUTE_PATH = '/src/routes';
@@ -121,7 +121,7 @@ const plugin: Plugin = {
         .map((v) => {
           let header = `<${v.path}>; rel=preload; as=${v.as}`;
           if (v.as === 'style') {
-            header += '; crossorigin';
+            header += '; crossorigin=anonymous';
           }
           return header;
         })
