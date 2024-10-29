@@ -153,6 +153,7 @@
       display: none;
       
       @media (min-width: style.$size_sm) {
+        pointer-events: none;
         display: block;
         position: absolute;
         opacity: 5%;
