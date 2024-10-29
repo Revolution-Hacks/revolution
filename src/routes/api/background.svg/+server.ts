@@ -77,7 +77,7 @@ export const GET = async ({ request }: { request: Request }) => {
     headers: {
       Vary: 'Width, Viewport-Width, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Viewport-Height, Sec-CH-UA-Mobile',
       'Content-Type': 'image/svg+xml',
-      'Cache-Control': 'public, max-age=604800'
+      'Cache-Control': 'immutable, max-age=31536000'
     }
   });
 };
