@@ -4,6 +4,8 @@ import { validateSubscribeToken } from '$lib/jwt';
 import { redirect, type Actions } from '@sveltejs/kit';
 import table from '$lib/airtable';
 
+export const prerender = false;
+
 export const actions = {
   default: async ({ url }) => {
     const token = url.searchParams.get('token');

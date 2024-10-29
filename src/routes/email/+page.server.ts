@@ -7,6 +7,8 @@ import { createSubscribeToken } from '$lib/jwt';
 import { sendEmail } from '$lib/emails/email';
 import table from '$lib/airtable';
 
+export const prerender = false;
+
 export const actions = {
   default: async ({ url, request }) => {
     const data = await request.formData();
