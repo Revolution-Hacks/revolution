@@ -119,10 +119,10 @@ const plugin: Plugin = {
 
       headerOutput += headers
         .map((v) => {
-          let header = `<${v.path}>; rel=preload; as=${v.as}`;
-          // if (v.as === 'style') {
-            header += '; crossorigin=anonymous';
-          // }
+          let header = `<${v.path}>; rel="preload"; as="${v.as}"; nopush`;
+          if (v.as === 'font') {
+            header += '; crossorigin="anonymous"';
+          }
           return header;
         })
         .join(',');
