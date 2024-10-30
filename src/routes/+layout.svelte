@@ -1,13 +1,13 @@
 <script>
   import DoubleArrow from '$lib/images/doublearrow.svg?component';
-  import fonts from '$lib/fonts.css?url';
   import Gear from '$lib/images/gear.svg?component';
+  import Bricks from '$lib/images/rainbowbricks.svg?component';
 </script>
 
 <svelte:head>
-  <noscript><link rel="stylesheet" href={fonts} /></noscript>
+  <!-- <noscript><link rel="stylesheet" href={fonts} /></noscript> -->
   <!-- See app.html -->
-  <link rel="preload" as="style" href={fonts} id="font-preload" />
+  <!-- <link rel="preload" as="style" href={fonts} id="font-preload" /> -->
 
   <meta name="theme-color" content="#2C1B10" />
 </svelte:head>
@@ -15,6 +15,7 @@
 <slot />
 
 <footer>
+  <Bricks class="bricks" />
   <div class="wall-top"></div>
   <div class="grid">
     <DoubleArrow class="logo" />
@@ -43,7 +44,8 @@
   @font-face {
     font-family: 'Revolution Sans Title';
     font-display: block;
-    src: url('$lib/fonts/DMSans.title.woff2'), local('DM Sans');
+    // The font is a whopping 1 kilobyte. It's fine.
+    src: url('$lib/fonts/DMSans.title.woff2?inline'), local('DM Sans');
   }
 
   @font-face {
@@ -80,10 +82,30 @@
 
   // Main element brick texture
   :global(main) {
+    position: relative;
     min-height: calc(100vh - 4em);
     overflow: clip;
+    z-index: 0;
 
     @include style.brick-texture(var(--overlay-brick));
+  }
+
+  // Dynamic background support
+  :global(main::before) {
+    content: '';
+    position: absolute;
+    display: block;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeat url('/api/background.svg') top left;
+
+    @media (min-width: style.$size_sm) {
+      transform-origin: top left;
+      transform: scale(2);
+    }
   }
 
   // Footer styles
@@ -125,6 +147,22 @@
       box-shadow: 0 0 1em rgba(0, 0, 0, 50%);
 
       @include style.brick-texture();
+    }
+    
+    :global(.bricks) {
+      display: none;
+      
+      @media (min-width: style.$size_sm) {
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        opacity: 5%;
+        mix-blend-mode: lighten;
+        top: 32px;
+        left: 32px;
+        transform-origin: top left;
+        transform: scale(2);
+      }
     }
 
     @media (min-width: style.$size_sm) {

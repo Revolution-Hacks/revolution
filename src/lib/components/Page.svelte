@@ -1,5 +1,5 @@
-<script>
-  export let title;
+<script lang="ts">
+  let { title, children } = $props();
 </script>
 
 <svelte:head>
@@ -8,7 +8,7 @@
 
 <main>
   <div class="content">
-    <slot />
+    {@render children?.()}
   </div>
 </main>
 
