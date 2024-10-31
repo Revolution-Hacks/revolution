@@ -4,6 +4,8 @@ import { validateUnsubscribeToken } from '$lib/jwt';
 import { redirect } from '@sveltejs/kit';
 import table from '$lib/airtable';
 
+export const prerender = false;
+
 export const load: PageServerLoad = async ({ url }) => {
   const token = url.searchParams.get('token');
 
