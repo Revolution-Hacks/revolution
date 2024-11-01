@@ -183,6 +183,8 @@
         width: 3em;
         height: 3em;
         align-self: center;
+        
+        stroke: rgb(var(--fg));
       }
 
       .header {
