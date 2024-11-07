@@ -280,6 +280,8 @@
       align-self: center;
       
       stroke: rgb(var(--fg));
+      
+      animation-delay: 500ms;
     }
     
     :global(.logo .a) {
