@@ -48,7 +48,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   )
   response.headers.set(
     'X-Content-Type-Options',
-    'nnosniff'
+    'nosniff'
   )
   response.headers.set(
     'X-Frame-Options',
