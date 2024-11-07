@@ -285,13 +285,13 @@
     :global(.logo .a) {
       stroke-dasharray: 0 100;
       animation: 1s cubic-bezier(.05,.09,.23,1) logo-a forwards;
-      animation-delay: 500ms;
+      animation-delay: 200ms;
     }
     
     :global(.logo .b) {
       stroke-dasharray: 0 100;
       animation: 1s cubic-bezier(.05,.09,.23,1) logo-b forwards;
-      animation-delay: 500ms;
+      animation-delay: 200ms;
     }
 
     .header {
