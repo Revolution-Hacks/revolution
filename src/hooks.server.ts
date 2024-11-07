@@ -32,11 +32,34 @@ export const handle: Handle = async ({ event, resolve }) => {
   
   link.push(`</api/background.svg>; rel="preload"; as="image";`);
 
+  response.headers
+  
   response.headers.set('link', link.join(','));
   response.headers.set(
     'Accept-CH',
     'Width, Viewport-Width, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Viewport-Height, Sec-CH-UA-Mobile'
   );
+  response.headers.set(
+    'Referer',
+    'no-referrer'
+  )
+  response.headers.set(
+    'Strict-Transport-Security',
+    // STS for 1 decade on all subdomains
+    'max-age=315360000; includeSubDomains; preload'
+  )
+  response.headers.set(
+    'X-Content-Type-Options',
+    'nnosniff'
+  )
+  response.headers.set(
+    'X-Frame-Options',
+    'DENY'
+  )
+  response.headers.set(
+    'Cross-Origin-Resource-Policy',
+    'same-origin'
+  )
 
   return response;
 };
