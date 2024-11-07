@@ -293,6 +293,13 @@
       animation: 1s cubic-bezier(.05,.09,.23,1) logo-b forwards;
       animation-delay: 200ms;
     }
+    
+    @media (prefers-reduced-motion) {
+      :global(.logo .a, .logo .b) {
+        animation: none;
+        stroke-dasharray: 100 100;
+      }
+    }
 
     .header {
       grid-area: 1 / 2 / 1 / 2;
