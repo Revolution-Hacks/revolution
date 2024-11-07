@@ -295,7 +295,7 @@
     }
     
     @media (prefers-reduced-motion) {
-      :global(.logo .a, .logo .b) {
+      :global(.logo .a), :global(.logo .b) {
         animation: none;
         stroke-dasharray: 100 100;
       }
