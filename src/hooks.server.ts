@@ -31,8 +31,6 @@ export const handle: Handle = async ({ event, resolve }) => {
   }
   
   link.push(`</api/background.svg>; rel="preload"; as="image";`);
-
-  response.headers
   
   response.headers.set('link', link.join(','));
   response.headers.set(
