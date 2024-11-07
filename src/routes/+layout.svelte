@@ -135,6 +135,11 @@
       @media (min-width: style.$size_md) {
         --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
+      
+      @media (prefers-reduced-motion) {
+        animation: none;
+        transform: var(--transform);
+      }
     }
 
     .wall-top {
@@ -183,6 +188,8 @@
         width: 3em;
         height: 3em;
         align-self: center;
+        
+        stroke: rgb(var(--fg));
       }
 
       .header {
