@@ -9,7 +9,7 @@
   <title>Revolution 2025</title>
   <meta
     name="description"
-    content="Revolution is a UK hackathon taking place sometime next year. We'd love to see you there!"
+    content="Revolution is a UK hackathon taking place next summer. We'd love to see you there!"
   />
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Revolution 2025" />
