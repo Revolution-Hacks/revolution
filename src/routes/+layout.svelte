@@ -135,6 +135,11 @@
       @media (min-width: style.$size_md) {
         --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
+      
+      @media (prefers-reduced-motion) {
+        animation: none;
+        transform: var(--transform);
+      }
     }
 
     .wall-top {

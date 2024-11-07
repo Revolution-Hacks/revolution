@@ -157,6 +157,10 @@
         background: no-repeat space url('$lib/images/train.svg') left/149em;
         animation: 30s linear infinite train;
         animation-delay: var(--animation-delay);
+        
+        @media (prefers-reduced-motion) {
+          display: none;
+        }
       }
 
       &.reverse::after {
@@ -171,10 +175,6 @@
         to {
           background-position-x: 550%;
         }
-      }
-
-      @media (prefers-reduced-motion) {
-        display: none;
       }
     }
 
@@ -226,6 +226,7 @@
 
       @media (prefers-reduced-motion) {
         animation: none;
+        transform: var(--transform);
       }
     }
   }
