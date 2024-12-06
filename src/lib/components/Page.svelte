@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: center;
     height: 3em;
+    width: 16em;
     padding: 0 2em;
     color: rgb(var(--fg));
     background: none;
