@@ -29,7 +29,7 @@
     filter: #{"grayscale(50%) invert()"};
   }
   
-  main :global(button) {
+  main :global(button), main :global(.style-button) {
     height: 3em;
     padding: 0 2em;
     color: rgb(var(--fg));

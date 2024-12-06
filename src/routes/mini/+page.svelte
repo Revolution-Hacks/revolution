@@ -13,7 +13,7 @@
       <div class="content">
         <p class="hero">We're hosting a small event in London lorem ipsum sit dolor amet I hate web development</p>
         <br />
-        <button>Sign Up Yes Do It Now Right Away Immediately</button>
+        <a href="https://revolution.fillout.com/mini" class="style-button">Sign Up Yes Do It Now Right Away Immediately</a>
       </div>
     </div>
 
