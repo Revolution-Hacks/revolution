@@ -37,15 +37,4 @@
   form {
     margin: 1em 0;
   }
-
-  button {
-    height: 3em;
-    padding: 0 2em;
-    color: rgb(var(--fg));
-    font-weight: 500;
-    background: none;
-
-    @include style.hover;
-    @include style.box-texture('$lib/textures/inputbox.svg');
-  }
 </style>
