@@ -30,6 +30,7 @@
   }
   
   main :global(button), main :global(.style-button) {
+    display: block;
     height: 3em;
     padding: 0 2em;
     color: rgb(var(--fg));
