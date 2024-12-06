@@ -30,6 +30,7 @@
       <h2>What?</h2>
 
       <p>i am pissing myself</p>
+      <p>i am pissing myself</p>
     </div>
     <div class="info-card">
       <h2>What?</h2>
@@ -193,6 +194,7 @@
       width: 64em;
       padding: 2em 2em;
       box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
+      height: 32em;
       
       @include style.box-texture('$lib/textures/containerbox.svg');
     }

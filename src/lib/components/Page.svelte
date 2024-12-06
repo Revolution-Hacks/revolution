@@ -31,6 +31,11 @@
   
   main :global(button), main :global(.style-button) {
     display: block;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
     height: 3em;
     padding: 0 2em;
     color: rgb(var(--fg));
