@@ -13,7 +13,7 @@
       <div class="content">
         <p class="hero">We're hosting a small hackathon in London on <strong>January 4th</strong></p>
         <br />
-        <a href="https://revolution.fillout.com/mini" class="style-button">Sign up</a>
+        <a href="https://revolution.fillout.com/mini" target="_blank" class="style-button">Sign up</a>
       </div>
     </div>
 
