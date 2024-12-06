@@ -39,7 +39,6 @@
     height: 3em;
     padding: 0 2em;
     color: rgb(var(--fg));
-    font-weight: 500;
     background: none;
 
     @include style.hover;
