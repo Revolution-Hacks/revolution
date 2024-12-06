@@ -108,12 +108,61 @@
       margin: auto;
       gap: 1em;
 
+      @keyframes logo-a {
+        0% {
+          stroke-dasharray: 0 100;
+        }
+        
+        20% {
+          stroke-dasharray: 100 100;
+        }
+        
+        100% {
+          stroke-dasharray: 100 100;
+        }
+      }
+      
+      @keyframes logo-b {
+        0% {
+          stroke-dasharray: 0 100;
+        }
+        
+        20% {
+          stroke-dasharray: 0 100;
+        }
+        
+        100% {
+          stroke-dasharray: 100 100;
+        }
+      }
+  
       :global(.logo) {
         /* I'm not sure why this is needed. Maybe because it's another component */
         grid-area: 1 / 1 / 1 / 1;
         width: 3em;
         height: 3em;
         align-self: center;
+        
+        stroke: rgb(var(--fg));
+      }
+      
+      :global(.logo .a) {
+        stroke-dasharray: 0 100;
+        animation: 1s cubic-bezier(.05,.09,.23,1) logo-a forwards;
+        animation-delay: 200ms;
+      }
+      
+      :global(.logo .b) {
+        stroke-dasharray: 0 100;
+        animation: 1s cubic-bezier(.05,.09,.23,1) logo-b forwards;
+        animation-delay: 200ms;
+      }
+      
+      @media (prefers-reduced-motion) {
+        :global(.logo .a), :global(.logo .b) {
+          animation: none;
+          stroke-dasharray: 100 100;
+        }
       }
 
       .header {
