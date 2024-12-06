@@ -35,7 +35,7 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     height: 3em;
     padding: 0 2em;
     color: rgb(var(--fg));
