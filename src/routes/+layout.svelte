@@ -22,7 +22,6 @@
     <a class="header" href="/">Revolution</a>
     <div class="content">
       <ul>
-        <li><a href="/mini">Revolution (mini)</a></li>
         <li><a href="https://hackclub.com/slack/">Hack Club Slack (talk to us!)</a></li>
         <li><a href="https://github.com/Revolution-Hacks/revolution">Source code</a></li>
         <li><a href="https://hcb.hackclub.com/revolution">Financials</a></li>
