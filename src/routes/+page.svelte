@@ -68,21 +68,35 @@
     </div>
   </div>
 
-  <div class="info-card">
+  <div class="info-card left">
     <h2>What is a hackathon?</h2>
-    <p>A hackathon is where teenagers come together to build a project and share them with the world!</p>
-  </div>
-
-  <div class="info-card">
-    <h2>Who is Revolution for?</h2>
-    <p>Revolution is for teenagers under 18 and is <strong>completely free to attend</strong>.</p>
-  </div>
-
-  <div class="info-card">
-    <h2>How can I sign up?</h2>
-    <p>Get updates about Revolution and receive an email when we open our sign-up form:</p>
-    <br />
-    {@render email()}
+    <p>
+      Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when it was popularized
+      by advertisements for Letraset transfer sheets. Lorem ipsum was introduced to the digital world in the
+      mid-1980s, when Aldus employed it in graphic and word-processing templates for its desktop publishing program
+      PageMaker. Other popular word processors, including Pages and Microsoft Word, have since adopted Lorem ipsum,
+      as have many LaTeX packages, web content managers such as Joomla! and WordPress, and CSS libraries such
+      as Semantic UI.
+    </p>
+    <div>
+      <figure class="placement-1" style="--deg: 2deg; --r-deg: -1deg">
+        <enhanced:img src="$lib/images/hc-hackathon.jpg" />
+        <figcaption>Teenagers get together in hackathons to build cool things.</figcaption>
+      </figure>
+      <a href="https://www.youtube.com/watch?v=QvCoISXfcE8">
+        <figure class="placement-2" style="--deg: -1deg; --r-deg: 2deg">
+          <enhanced:img src="$lib/images/hc-apocalypse.jpg" />
+          <p>
+            Click the picture to play the video.
+          </p>
+          <figcaption>
+            After an apocalypse, comes a revolution.
+            Last year, 150 teenage hackers came together at Hack Club's
+            Apocalypse in Toronto to build cool projects.
+          </figcaption>
+        </figure>
+      </a>
+    </div>
   </div>
 </main>
 
@@ -101,11 +115,11 @@
     position: relative;
     min-height: 100vh;
     overflow-x: clip;
-    
+
     .top-info {
       width: 100%;
       padding: 1.5em;
-      
+
       h2 {
         font-size: 1em;
       }
@@ -166,7 +180,7 @@
         background: no-repeat space url('$lib/images/train.svg') left/149em;
         animation: 30s linear infinite train;
         animation-delay: var(--animation-delay);
-        
+
         @media (prefers-reduced-motion) {
           display: none;
         }
@@ -252,30 +266,30 @@
     padding: 8em 4em;
     margin: auto;
     gap: 1em;
-    
+
     @keyframes logo-a {
       0% {
         stroke-dasharray: 0 100;
       }
-      
+
       20% {
         stroke-dasharray: 100 100;
       }
-      
+
       100% {
         stroke-dasharray: 100 100;
       }
     }
-    
+
     @keyframes logo-b {
       0% {
         stroke-dasharray: 0 100;
       }
-      
+
       20% {
         stroke-dasharray: 0 100;
       }
-      
+
       100% {
         stroke-dasharray: 100 100;
       }
@@ -287,24 +301,25 @@
       width: 3em;
       height: 3em;
       align-self: center;
-      
+
       stroke: rgb(var(--fg));
     }
-    
+
     :global(.logo .a) {
       stroke-dasharray: 0 100;
-      animation: 1s cubic-bezier(.05,.09,.23,1) logo-a forwards;
+      animation: 1s cubic-bezier(0.05, 0.09, 0.23, 1) logo-a forwards;
       animation-delay: 200ms;
     }
-    
+
     :global(.logo .b) {
       stroke-dasharray: 0 100;
-      animation: 1s cubic-bezier(.05,.09,.23,1) logo-b forwards;
+      animation: 1s cubic-bezier(0.05, 0.09, 0.23, 1) logo-b forwards;
       animation-delay: 200ms;
     }
-    
+
     @media (prefers-reduced-motion) {
-      :global(.logo .a), :global(.logo .b) {
+      :global(.logo .a),
+      :global(.logo .b) {
         animation: none;
         stroke-dasharray: 100 100;
       }
@@ -360,13 +375,66 @@
 
   // Information card styles
   .info-card {
+    padding: 2rem;
     margin: auto;
-    max-width: calc(100vw - 4em);
-    width: 64em;
-    padding: 2em 2em;
-    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
-
-    @include style.box-texture('$lib/textures/containerbox.svg');
+    max-width: 64rem;
+    
+    h2, & > p {
+      padding: 2rem 2rem;
+      box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
+  
+      @include style.box-texture('$lib/textures/containerbox.svg');
+    }
+    
+    h2 {
+      padding: 1rem 2rem;
+      width: max-content;
+      z-index: 2;
+      transform: translate(-1rem, 1rem) rotate(-2deg)
+    }
+    
+    // figures
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      transform: translateY(-1rem);
+      gap: 2rem;
+      padding: 0 2rem;
+      
+      figure {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 2px;
+        color: black;
+        
+        height: min-content;
+        max-width: 22rem;
+        transform-origin: top left;
+        transform: rotate(var(--deg));
+        background: rgb(var(--fg));
+        padding: 1rem;
+        
+        transition: transform 200ms;
+        
+        img {
+          filter: grayscale(0.6);
+        }
+        
+        p {
+          font-size: 0.8em;
+        }
+        
+        figcaption {
+          gap: 0.5rem;
+        }
+        
+        &:hover {
+          transform: rotate(calc(var(--deg) + var(--r-deg)));
+        }
+      }
+    }
   }
 
   /*

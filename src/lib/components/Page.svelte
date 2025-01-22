@@ -6,7 +6,7 @@
   <title>{title} | Revolution</title>
 </svelte:head>
 
-<main class:inverted={inverted}>
+<main class:inverted>
   <div class="content">
     {@render children?.()}
   </div>
@@ -14,7 +14,7 @@
 
 <style lang="scss">
   @use 'src/lib/style';
-  
+
   .content {
     margin: auto;
     padding: 4em 2em;
@@ -24,12 +24,13 @@
     flex-direction: column;
     gap: 0.5em;
   }
-  
+
   .inverted {
-    filter: #{"grayscale(50%) invert()"};
+    filter: #{'grayscale(50%) invert()'};
   }
-  
-  main :global(button), main :global(.style-button) {
+
+  main :global(button),
+  main :global(.style-button) {
     display: block;
     text-decoration: none;
     font-weight: bold;

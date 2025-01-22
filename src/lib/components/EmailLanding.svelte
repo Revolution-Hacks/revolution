@@ -1,14 +1,14 @@
 <script>
   import Page from '$lib/components/Page.svelte';
   import { onMount } from 'svelte';
-  
+
   let { title, noscriptBody, scriptBody, buttonText } = $props();
-  
+
   let form = $state();
-  
+
   onMount(() => {
     form.submit();
-  })
+  });
 </script>
 
 <Page {title}>
