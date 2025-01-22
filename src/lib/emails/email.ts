@@ -36,7 +36,7 @@ export async function sendEmail<T extends Record<string, any>>(
   host: URL
 ) {
   const { html, plain } = renderEmail(component, props, host);
-  
+
   if (dev) {
     console.log(`Sent email to ${recipient}: ${plain}`);
     return;

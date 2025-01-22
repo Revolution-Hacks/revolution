@@ -9,6 +9,8 @@
   {/snippet}
   {#snippet scriptBody()}
     <h1>Please wait</h1>
-    <p>We're confirming your email address. If nothing happens in a few seconds, try clicking the unsubscribe button.</p>
+    <p>
+      We're confirming your email address. If nothing happens in a few seconds, try clicking the unsubscribe button.
+    </p>
   {/snippet}
 </EmailLanding>

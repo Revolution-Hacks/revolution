@@ -135,7 +135,7 @@
       @media (min-width: style.$size_md) {
         --transform: translate(calc(50% - 8em), calc(50% - 2em));
       }
-      
+
       @media (prefers-reduced-motion) {
         animation: none;
         transform: var(--transform);
@@ -153,10 +153,10 @@
 
       @include style.brick-texture();
     }
-    
+
     :global(.bricks) {
       display: none;
-      
+
       @media (min-width: style.$size_sm) {
         pointer-events: none;
         display: block;
@@ -188,7 +188,7 @@
         width: 3em;
         height: 3em;
         align-self: center;
-        
+
         stroke: rgb(var(--fg));
       }
 

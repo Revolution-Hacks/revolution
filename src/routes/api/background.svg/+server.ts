@@ -1,7 +1,14 @@
 import { render } from 'svelte/server';
 import Background from './Background.svelte';
 
-const DERIVED_HEADERS = ['Width', 'Viewport-Width', 'Sec-CH-Width', 'Sec-CH-Viewport-Width', 'Sec-CH-Viewport-Height', 'User-Agent'];
+const DERIVED_HEADERS = [
+  'Width',
+  'Viewport-Width',
+  'Sec-CH-Width',
+  'Sec-CH-Viewport-Width',
+  'Sec-CH-Viewport-Height',
+  'User-Agent'
+];
 const WIDTH_HEADERS = ['Width', 'Viewport-Width', 'Sec-CH-Width', 'Sec-CH-Viewport-Width'];
 const HEIGHT_HEADERS = ['Sec-CH-Viewport-Height'];
 const MOBILE_INDICATORS = ['mobile', 'android', 'iphone'];
@@ -58,13 +65,14 @@ export const GET = async ({ request }: { request: Request }) => {
 
   // Now render the background and return it
   // Create an insecure random seed from the request headers
-  const seed = Array.from([...request.headers].filter((v) => {
-    return DERIVED_HEADERS.find((f) => f.toLowerCase() == v[0].toLowerCase()) !== undefined
-  }).join('')).reduce(
-    (hash, char) => 0 | (31 * hash + char.charCodeAt(0)),
-    0
-  );
-  
+  const seed = Array.from(
+    [...request.headers]
+      .filter((v) => {
+        return DERIVED_HEADERS.find((f) => f.toLowerCase() == v[0].toLowerCase()) !== undefined;
+      })
+      .join('')
+  ).reduce((hash, char) => 0 | (31 * hash + char.charCodeAt(0)), 0);
+
   const svg = render(Background, {
     props: { width, height, seed }
   });
