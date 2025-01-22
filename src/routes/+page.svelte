@@ -83,19 +83,19 @@
         <enhanced:img src="$lib/images/hc-hackathon.jpg" />
         <figcaption>Teenagers get together in hackathons to build cool things.</figcaption>
       </figure>
-      <a href="https://www.youtube.com/watch?v=QvCoISXfcE8">
-        <figure class="placement-2" style="--deg: -1deg; --r-deg: 2deg">
+      <figure class="placement-2" style="--deg: -1deg; --r-deg: 2deg">
+        <a href="https://www.youtube.com/watch?v=QvCoISXfcE8" aria-label="Hack Club Apocalypse video">
           <enhanced:img src="$lib/images/hc-apocalypse.jpg" />
-          <p>
-            Click the picture to play the video.
-          </p>
-          <figcaption>
-            After an apocalypse, comes a revolution.
-            Last year, 150 teenage hackers came together at Hack Club's
-            Apocalypse in Toronto to build cool projects.
-          </figcaption>
-        </figure>
-      </a>
+        </a>
+        <p>
+          Click the picture to play the video.
+        </p>
+        <figcaption>
+          After an apocalypse, comes a revolution.
+          Last year, 150 teenage hackers came together at Hack Club's
+          Apocalypse in Toronto to build cool projects.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </main>
@@ -401,6 +401,7 @@
       transform: translateY(-1rem);
       gap: 2rem;
       padding: 0 2rem;
+      justify-content: center;
       
       figure {
         display: flex;
@@ -410,6 +411,9 @@
         color: black;
         
         height: min-content;
+        flex: 1 1 18rem;
+        min-width: 18rem;
+        width: 100%;
         max-width: 22rem;
         transform-origin: top left;
         transform: rotate(var(--deg));
