@@ -70,19 +70,37 @@
 
   <div class="info-card">
     <h2>What is a hackathon?</h2>
-    <p>A hackathon is where teenagers come together to build a project and share them with the world!</p>
+    <p>
+      A social coding marathon! Imagine a weekend where teenagers come together to code projects for fun - however goofy or janky — and share them with each other.</p>
+      <br />
+      <p>You’ll have a goal to work towards, side quests to tackle, and new friends to hang out with. You don’t need any experience, just an open mind and a willingness to learn.</p>
   </div>
 
   <div class="info-card">
-    <h2>Who is Revolution for?</h2>
-    <p>Revolution is for teenagers under 18 and is <strong>completely free to attend</strong>.</p>
+    <h2>Teenagers Galore!</h2>
+    <p>Revolution is for teenagers 18 or under from anywhere in the world! All you need to bring is yourself, your laptop & charger and a willingness to make friends, have fun and learn new things! :D</p>
   </div>
 
   <div class="info-card">
-    <h2>How can I sign up?</h2>
-    <p>Get updates about Revolution and receive an email when we open our sign-up form:</p>
+    <h2>REVOLT!</h2>
+    <p>Interested in coming to Revolution? Put your email in below to get notified when signups open!</p>
     <br />
     {@render email()}
+  </div>
+  
+  <h2 class='middle-heading'>The boring stuff</h2>
+  
+  <div class="info-card">
+    <h3>Where is it?</h3>
+    <p>We don't have a specific location yet, but Revolution will be in the UK!</p>
+  </div>
+  <div class="info-card">
+    <h3>How much does it cost?</h3>
+    <p>Revolution is completely free to attend! We'll be able to provide partial travel reimbursement to people who live in the UK as well.</p>
+  </div>
+  <div class="info-card">
+    <h3>What do I need to bring?</h3>
+    <p>Make sure to bring yourself, </p>
   </div>
 </main>
 
@@ -350,6 +368,11 @@
         grid-area: 2 / 2 / 2 / 2;
       }
     }
+  }
+  
+  .middle-heading {
+    text-align: center;
+    font-size: 2em;
   }
 
   // Ensure everything is on top of the background content
