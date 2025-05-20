@@ -46,6 +46,11 @@
           to see you there!
         </p>
         <br />
+        <div class="info-card top-info">
+          <h2>Interested in Revolution?</h2>
+          You should come to our latest event, <a href="/mini">mini</a>! Sign ups close at the end of the year, UK time.
+        </div>
+        <br />
         <p class="email-title">Find out when sign-ups open:</p>
         {@render email()}
       </div>
