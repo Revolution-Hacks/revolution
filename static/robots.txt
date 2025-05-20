@@ -5,5 +5,3 @@ User-agent: *
 Disallow: /_app/
 Disallow: /email
 Disallow: /email/
-Disallow: /mini
-Disallow: /mini/

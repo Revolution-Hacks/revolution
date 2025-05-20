@@ -1,5 +1,5 @@
 import TextFontURL from '$lib/fonts/DMSans.text.woff2?url';
-import Bomb from '$lib/bomb.zstd?arraybuffer';
+import Bomb from '$lib/bomb.zstd?arraybuffer'
 import type { Handle } from '@sveltejs/kit';
 
 const PRELOADED_FONTS = [TextFontURL];
