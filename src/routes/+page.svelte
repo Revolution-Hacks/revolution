@@ -48,7 +48,7 @@
         <br />
         <div class="info-card top-info">
           <h2>Interested in Revolution?</h2>
-          You should come to our latest event, <a href="/mini">mini</a>! Sign ups close at the end of the year, UK time.
+          You should come to our latest event, <a href="/mini">mini</a>! Taking place July 12th, 2025 in Leicester.
         </div>
         <br />
         <p class="email-title">Find out when sign-ups open:</p>
@@ -105,7 +105,7 @@
   </div>
   <div class="info-card">
     <h3>What do I need to bring?</h3>
-    <p>Make sure to bring yourself, </p>
+    <p>Make sure to bring yourself, your laptop, charger, water bottle and anything else you might want.</p>
   </div>
 </main>
 

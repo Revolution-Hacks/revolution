@@ -11,9 +11,9 @@
       <h1 class="header">Revolution<br /><span class="mini">mini</span></h1>
 
       <div class="content">
-        <p class="hero">We're hosting a small hackathon in London on <strong>January 4th</strong></p>
+        <p class="hero">We're hosting a small hackathon in Leicester on <strong>July 12th</strong></p>
         <br />
-        <a href="https://revolution.fillout.com/mini" target="_blank" class="style-button">Sign up</a>
+        <a href="https://revolution.fillout.com/mini-lei" target="_blank" class="style-button">Sign up</a>
       </div>
     </div>
 
@@ -28,11 +28,11 @@
   <div class="info-container">
     <div class="info-card">
       <h2>Where is it?</h2>
-      <p>We don't know yet, but we're looking at venues in London Zones 1-3. We'll let you know as soon as we have a confirmed venue.</p>
+      <p>Not confirmed yet, but likely the <a href="https://spacecentre.co.uk" target="_blank">National Space Centre</a>. We'll let you know as soon as we have a confirmed venue.</p>
     </div>
     <div class="info-card">
       <h2>When is it?</h2>
-      <p>January 4th, 2025. The exact times will depend on the venue, but will be roughly 9am-5pm.</p>
+      <p>July 12th, 2025. The exact times will depend on the venue, but will be roughly 8am-6pm.</p>
     </div>
     <div class="info-card">
       <h2>What can I build?</h2>
