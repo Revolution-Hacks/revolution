@@ -82,12 +82,12 @@
   </div>
 
   <div class="info-card">
-    <h2>Teenagers Galore!</h2>
-    <p>Revolution is for teenagers 18 or under from anywhere in the world! All you need to bring is yourself, your laptop & charger and a willingness to make friends, have fun and learn new things! :D</p>
+    <h2>For teenagers, by teenagers</h2>
+    <p>Revolution is for teenagers 18 or under from anywhere in the world! All you need to bring is yourself, your laptop & charger and a willingness to make friends, have fun and learn new things!</p>
   </div>
 
   <div class="info-card">
-    <h2>REVOLT!</h2>
+    <h2>Revolt!</h2>
     <p>Interested in coming to Revolution? Put your email in below to get notified when signups open!</p>
     <br />
     {@render email()}
